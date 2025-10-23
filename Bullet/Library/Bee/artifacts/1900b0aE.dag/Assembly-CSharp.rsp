@@ -366,7 +366,7 @@
 "Assets/Scripts/Bullet.cs"
 "Assets/Scripts/BulletSpawner.cs"
 "Assets/Scripts/GameManager.cs"
-"Assets/Scripts/playerController.cs"
+"Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Rotate.cs"
 -langversion:9.0
 

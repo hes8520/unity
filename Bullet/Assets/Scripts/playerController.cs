@@ -29,4 +29,13 @@ public class PlayerController : MonoBehaviour
         // CharacterController.Move()는 충돌을 자동 처리합니다 ✅
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
+
+        public void Die(){
+        gameObject.SetActive(false);
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+
+        gameManager.EndGame();
+    }
+    
 }
