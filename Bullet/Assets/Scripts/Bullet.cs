@@ -1,32 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-public class Bullet : MonoBehaviour {
-		public float speed = 8f; // 총알 이동 속력
-		private Rigidbody bulletRigidbody; // 이동에 사용할 리지드바디 컴포넌트
-		void Start() {
-	    // 게임 오브젝트에서 Rigidbody 컴포넌트를 찾아 bulletRigidbody에 할당
-	    bulletRigidbody = GetComponent<Rigidbody>();
-	    // 리지드바디의 속도 = 앞쪽 방향 * 이동 속력
-	    bulletRigidbody.velocity = transform.forward * speed;
-	
-	     Destroy(gameObject, 3f);
-}
 
-// 트리거 충돌 시 자동으로 실행되는 메서드
-void OnTriggerEnter(Collider other) {
-    // 충돌한 상대방 게임 오브젝트가 Player 태그를 가진 경우
-    if (other.tag == "Player")
+// 3D Rigidbody가 없으면 자동으로 추가해주는 기능
+[RequireComponent(typeof(Rigidbody))]
+public class Bullet : MonoBehaviour
+{
+    // 탄알 이동 속도 (Inspector에서 0이 아닌 값으로 설정!)
+    public float speed = 10f;
+
+    // 3D Rigidbody 컴포넌트
+    private Rigidbody rb;
+
+    void Start()
     {
-        // 상대방 게임 오브젝트에서 PlayerController 컴포넌트를 가져오기
-        PlayerController playerController = other.GetComponent<PlayerController>();
+        // 3D Rigidbody 컴포넌트를 가져옵니다.
+        rb = GetComponent<Rigidbody>();
+        
+        // 탄알이 바라보는 방향(transform.forward)으로 속도를 줍니다.
+        // (Spawner의 LookRotation이 Z축(forward)을 플레이어 방향으로 정렬했기 때문)
+        rb.velocity = transform.forward * speed;
+    }
 
-        // 상대방으로부터 PlayerController 컴포넌트를 가져오는데 성공했다면
-        if (playerController != null)
+    // 3D Collider와 '충돌'했을 때 호출되는 함수 (Collision2D 아님)
+    private void OnCollisionEnter(Collision collision)
+    {
+        // 충돌한 오브젝트의 태그가 "Wall"인지 확인
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            // 상대방 PlayerController 컴포넌트의 Die() 메서드 실행
-            playerController.Die();
+            // "Wall" 태그가 맞다면 이 탄알 오브젝트를 파괴
+            Destroy(gameObject);
         }
     }
-   }
-  }
+}

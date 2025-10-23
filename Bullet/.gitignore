@@ -1,0 +1,12 @@
+# Unity 표준 .gitignore
+
+# Unity 자동 생성 폴더
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ibrary/
+/[Ll]ogs/
+/[Tt]emp/
+
+# Visual Studio / Rider 파일 (선택 사항)
+*.sln
+*.csproj
