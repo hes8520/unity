@@ -1,0 +1,862 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe70aba2e7074048aca5de573b64a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleSelectedItems:
+    m_Keys:
+    - .collabignore
+    - Assets/Materials.meta
+    - Assets/Materials/rpgpp_lt_cloud_a.mat
+    - Assets/Materials/rpgpp_lt_cloud_a.mat.meta
+    - Assets/Materials/rpgpp_lt_mat_a.mat
+    - Assets/Materials/rpgpp_lt_mat_a.mat.meta
+    - Assets/Materials/rpgpp_lt_sky_a.mat
+    - Assets/Materials/rpgpp_lt_sky_a.mat.meta
+    - Assets/Models.meta
+    - Assets/Models/Exterior.meta
+    - Assets/Models/Exterior/rpgpp_lt_awning_standing_01a.fbx
+    - Assets/Models/Exterior/rpgpp_lt_awning_standing_01a.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_awning_standing_01b.fbx
+    - Assets/Models/Exterior/rpgpp_lt_awning_standing_01b.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_01_corner_a.fbx
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_01_corner_a.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_01a.fbx
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_01a.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_01b.fbx
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_01b.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_02a.fbx
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_02a.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_02b.fbx
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_02b.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_02c.fbx
+    - Assets/Models/Exterior/rpgpp_lt_fence_wood_02c.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_shed_wood_01.fbx
+    - Assets/Models/Exterior/rpgpp_lt_shed_wood_01.fbx.meta
+    - Assets/Models/Exterior/rpgpp_lt_shed_wood_02.fbx
+    - Assets/Models/Exterior/rpgpp_lt_shed_wood_02.fbx.meta
+    - Assets/Models/Nature.meta
+    - Assets/Models/Nature/rpgpp_lt_bush_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_bush_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_bush_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_bush_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_cloud_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_cloud_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_cloud_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_cloud_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_flower_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_flower_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_flower_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_flower_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_flower_03.fbx
+    - Assets/Models/Nature/rpgpp_lt_flower_03.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_grass_small_01a.fbx
+    - Assets/Models/Nature/rpgpp_lt_grass_small_01a.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_grass_small_01b.fbx
+    - Assets/Models/Nature/rpgpp_lt_grass_small_01b.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_hill_small_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_hill_small_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_hill_small_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_hill_small_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_mountain_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_mountain_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_plant_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_plant_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_plant_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_plant_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_rock_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_rock_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_rock_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_rock_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_rock_03.fbx
+    - Assets/Models/Nature/rpgpp_lt_rock_03.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_rock_small_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_rock_small_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_rock_small_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_rock_small_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_rocks_tiny_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_rocks_tiny_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_sky_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_sky_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_terrain_grass_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_terrain_grass_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_terrain_grass_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_terrain_grass_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_terrain_path_01a.fbx
+    - Assets/Models/Nature/rpgpp_lt_terrain_path_01a.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_terrain_path_01b.fbx
+    - Assets/Models/Nature/rpgpp_lt_terrain_path_01b.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_terrain_sand_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_terrain_sand_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_tree_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_tree_01.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_tree_02.fbx
+    - Assets/Models/Nature/rpgpp_lt_tree_02.fbx.meta
+    - Assets/Models/Nature/rpgpp_lt_tree_pine_01.fbx
+    - Assets/Models/Nature/rpgpp_lt_tree_pine_01.fbx.meta
+    - Assets/Models/Props.meta
+    - Assets/Models/Props/rpgpp_lt_banner_01a.fbx
+    - Assets/Models/Props/rpgpp_lt_banner_01a.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_banner_01b.fbx
+    - Assets/Models/Props/rpgpp_lt_banner_01b.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_barrel_01.fbx
+    - Assets/Models/Props/rpgpp_lt_barrel_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_barrel_02.fbx
+    - Assets/Models/Props/rpgpp_lt_barrel_02.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_basket_01.fbx
+    - Assets/Models/Props/rpgpp_lt_basket_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_basket_02.fbx
+    - Assets/Models/Props/rpgpp_lt_basket_02.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_bathtub_wood_01.fbx
+    - Assets/Models/Props/rpgpp_lt_bathtub_wood_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_bench_wood_01.fbx
+    - Assets/Models/Props/rpgpp_lt_bench_wood_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_bench_wood_02.fbx
+    - Assets/Models/Props/rpgpp_lt_bench_wood_02.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_bench_wood_03.fbx
+    - Assets/Models/Props/rpgpp_lt_bench_wood_03.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_bird_house_01.fbx
+    - Assets/Models/Props/rpgpp_lt_bird_house_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_bowl_metal_01.fbx
+    - Assets/Models/Props/rpgpp_lt_bowl_metal_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_box_wood_01.fbx
+    - Assets/Models/Props/rpgpp_lt_box_wood_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_broom_01.fbx
+    - Assets/Models/Props/rpgpp_lt_broom_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_bucket_01.fbx
+    - Assets/Models/Props/rpgpp_lt_bucket_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_chair_01a.fbx
+    - Assets/Models/Props/rpgpp_lt_chair_01a.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_chair_01b.fbx
+    - Assets/Models/Props/rpgpp_lt_chair_01b.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_crate_01.fbx
+    - Assets/Models/Props/rpgpp_lt_crate_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_crate_02.fbx
+    - Assets/Models/Props/rpgpp_lt_crate_02.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_crate_03.fbx
+    - Assets/Models/Props/rpgpp_lt_crate_03.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_hanger_clothes_01.fbx
+    - Assets/Models/Props/rpgpp_lt_hanger_clothes_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_hanger_wood_01.fbx
+    - Assets/Models/Props/rpgpp_lt_hanger_wood_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_hanger_wood_02.fbx
+    - Assets/Models/Props/rpgpp_lt_hanger_wood_02.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_jug_01.fbx
+    - Assets/Models/Props/rpgpp_lt_jug_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_ladder_01.fbx
+    - Assets/Models/Props/rpgpp_lt_ladder_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_log_wood_01.fbx
+    - Assets/Models/Props/rpgpp_lt_log_wood_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_log_wood_02a.fbx
+    - Assets/Models/Props/rpgpp_lt_log_wood_02a.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_log_wood_02b.fbx
+    - Assets/Models/Props/rpgpp_lt_log_wood_02b.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_package_01.fbx
+    - Assets/Models/Props/rpgpp_lt_package_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_rake_01.fbx
+    - Assets/Models/Props/rpgpp_lt_rake_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_sack_01.fbx
+    - Assets/Models/Props/rpgpp_lt_sack_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_sack_02.fbx
+    - Assets/Models/Props/rpgpp_lt_sack_02.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_sack_02_set.fbx
+    - Assets/Models/Props/rpgpp_lt_sack_02_set.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_sack_open_01.fbx
+    - Assets/Models/Props/rpgpp_lt_sack_open_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_shield_wall_01a.fbx
+    - Assets/Models/Props/rpgpp_lt_shield_wall_01a.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_shield_wall_01b.fbx
+    - Assets/Models/Props/rpgpp_lt_shield_wall_01b.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_stones_01.fbx
+    - Assets/Models/Props/rpgpp_lt_stones_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_table_01.fbx
+    - Assets/Models/Props/rpgpp_lt_table_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_trough_01.fbx
+    - Assets/Models/Props/rpgpp_lt_trough_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_vase_01.fbx
+    - Assets/Models/Props/rpgpp_lt_vase_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_vase_02.fbx
+    - Assets/Models/Props/rpgpp_lt_vase_02.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_vase_03.fbx
+    - Assets/Models/Props/rpgpp_lt_vase_03.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_wagon_01.fbx
+    - Assets/Models/Props/rpgpp_lt_wagon_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_well_01.fbx
+    - Assets/Models/Props/rpgpp_lt_well_01.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_wood_path_01a.fbx
+    - Assets/Models/Props/rpgpp_lt_wood_path_01a.fbx.meta
+    - Assets/Models/Props/rpgpp_lt_wood_path_01b.fbx
+    - Assets/Models/Props/rpgpp_lt_wood_path_01b.fbx.meta
+    - Assets/Models/Structures.meta
+    - Assets/Models/Structures/rpgpp_lt_building_01.fbx
+    - Assets/Models/Structures/rpgpp_lt_building_01.fbx.meta
+    - Assets/Models/Structures/rpgpp_lt_building_02.fbx
+    - Assets/Models/Structures/rpgpp_lt_building_02.fbx.meta
+    - Assets/Models/Structures/rpgpp_lt_building_03.fbx
+    - Assets/Models/Structures/rpgpp_lt_building_03.fbx.meta
+    - Assets/Models/Structures/rpgpp_lt_building_04.fbx
+    - Assets/Models/Structures/rpgpp_lt_building_04.fbx.meta
+    - Assets/Models/Structures/rpgpp_lt_building_05.fbx
+    - Assets/Models/Structures/rpgpp_lt_building_05.fbx.meta
+    - Assets/Models/cuteduck.blend
+    - Assets/Models/cuteduck.blend.meta
+    - Assets/Models/player.controller
+    - Assets/Models/player.controller.meta
+    - Assets/Prefabs.meta
+    - Assets/Prefabs/Buildings.meta
+    - Assets/Prefabs/Buildings/Bld_closed.meta
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_01.prefab
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_01.prefab.meta
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_02.prefab
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_02.prefab.meta
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_03.prefab
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_03.prefab.meta
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_04.prefab
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_04.prefab.meta
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_05.prefab
+    - Assets/Prefabs/Buildings/Bld_closed/rpgpp_lt_building_05.prefab.meta
+    - Assets/Prefabs/Exterior.meta
+    - Assets/Prefabs/Exterior/Wood_path.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_awning_standing_01a.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_awning_standing_01a.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_awning_standing_01b.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_awning_standing_01b.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_01_corner_a.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_01_corner_a.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_01a.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_01a.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_01b.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_01b.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_02a.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_02a.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_02b.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_02b.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_02c.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_fence_wood_02c.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_shed_wood_01.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_shed_wood_01.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_shed_wood_02.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_shed_wood_02.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_wood_path_01a.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_wood_path_01a.prefab.meta
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_wood_path_01b.prefab
+    - Assets/Prefabs/Exterior/Wood_path/rpgpp_lt_wood_path_01b.prefab.meta
+    - Assets/Prefabs/Nature.meta
+    - Assets/Prefabs/Nature/Rocks.meta
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_01.prefab
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_01.prefab.meta
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_02.prefab
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_02.prefab.meta
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_03.prefab
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_03.prefab.meta
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_small_01.prefab
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_small_01.prefab.meta
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_small_02.prefab
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rock_small_02.prefab.meta
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rocks_tiny_01.prefab
+    - Assets/Prefabs/Nature/Rocks/rpgpp_lt_rocks_tiny_01.prefab.meta
+    - Assets/Prefabs/Nature/Terrain.meta
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_hill_small_01.prefab
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_hill_small_01.prefab.meta
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_hill_small_02.prefab
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_hill_small_02.prefab.meta
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_mountain_01.prefab
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_mountain_01.prefab.meta
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_grass_01.prefab
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_grass_01.prefab.meta
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_grass_02.prefab
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_grass_02.prefab.meta
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_path_01a.prefab
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_path_01a.prefab.meta
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_path_01b.prefab
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_path_01b.prefab.meta
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_sand_01.prefab
+    - Assets/Prefabs/Nature/Terrain/rpgpp_lt_terrain_sand_01.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation.meta
+    - Assets/Prefabs/Nature/Vegetation/Bushes.meta
+    - Assets/Prefabs/Nature/Vegetation/Bushes/rpgpp_lt_bush_01.prefab
+    - Assets/Prefabs/Nature/Vegetation/Bushes/rpgpp_lt_bush_01.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Bushes/rpgpp_lt_bush_02.prefab
+    - Assets/Prefabs/Nature/Vegetation/Bushes/rpgpp_lt_bush_02.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Flowers.meta
+    - Assets/Prefabs/Nature/Vegetation/Flowers/rpgpp_lt_flower_01.prefab
+    - Assets/Prefabs/Nature/Vegetation/Flowers/rpgpp_lt_flower_01.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Flowers/rpgpp_lt_flower_02.prefab
+    - Assets/Prefabs/Nature/Vegetation/Flowers/rpgpp_lt_flower_02.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Flowers/rpgpp_lt_flower_03.prefab
+    - Assets/Prefabs/Nature/Vegetation/Flowers/rpgpp_lt_flower_03.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Grass.meta
+    - Assets/Prefabs/Nature/Vegetation/Grass/rpgpp_lt_grass_small_01a.prefab
+    - Assets/Prefabs/Nature/Vegetation/Grass/rpgpp_lt_grass_small_01a.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Grass/rpgpp_lt_grass_small_01b.prefab
+    - Assets/Prefabs/Nature/Vegetation/Grass/rpgpp_lt_grass_small_01b.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Plants.meta
+    - Assets/Prefabs/Nature/Vegetation/Plants/rpgpp_lt_plant_01.prefab
+    - Assets/Prefabs/Nature/Vegetation/Plants/rpgpp_lt_plant_01.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Plants/rpgpp_lt_plant_02.prefab
+    - Assets/Prefabs/Nature/Vegetation/Plants/rpgpp_lt_plant_02.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Trees.meta
+    - Assets/Prefabs/Nature/Vegetation/Trees/rpgpp_lt_tree_01.prefab
+    - Assets/Prefabs/Nature/Vegetation/Trees/rpgpp_lt_tree_01.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Trees/rpgpp_lt_tree_02.prefab
+    - Assets/Prefabs/Nature/Vegetation/Trees/rpgpp_lt_tree_02.prefab.meta
+    - Assets/Prefabs/Nature/Vegetation/Trees/rpgpp_lt_tree_pine_01.prefab
+    - Assets/Prefabs/Nature/Vegetation/Trees/rpgpp_lt_tree_pine_01.prefab.meta
+    - Assets/Prefabs/Props.meta
+    - Assets/Prefabs/Props/Banners.meta
+    - Assets/Prefabs/Props/Banners/rpgpp_lt_banner_01a.prefab
+    - Assets/Prefabs/Props/Banners/rpgpp_lt_banner_01a.prefab.meta
+    - Assets/Prefabs/Props/Banners/rpgpp_lt_banner_01b.prefab
+    - Assets/Prefabs/Props/Banners/rpgpp_lt_banner_01b.prefab.meta
+    - Assets/Prefabs/Props/Benches.meta
+    - Assets/Prefabs/Props/Benches/rpgpp_lt_bench_wood_01.prefab
+    - Assets/Prefabs/Props/Benches/rpgpp_lt_bench_wood_01.prefab.meta
+    - Assets/Prefabs/Props/Benches/rpgpp_lt_bench_wood_02.prefab
+    - Assets/Prefabs/Props/Benches/rpgpp_lt_bench_wood_02.prefab.meta
+    - Assets/Prefabs/Props/Benches/rpgpp_lt_bench_wood_03.prefab
+    - Assets/Prefabs/Props/Benches/rpgpp_lt_bench_wood_03.prefab.meta
+    - Assets/Prefabs/Props/Chairs.meta
+    - Assets/Prefabs/Props/Chairs/rpgpp_lt_chair_01a.prefab
+    - Assets/Prefabs/Props/Chairs/rpgpp_lt_chair_01a.prefab.meta
+    - Assets/Prefabs/Props/Chairs/rpgpp_lt_chair_01b.prefab
+    - Assets/Prefabs/Props/Chairs/rpgpp_lt_chair_01b.prefab.meta
+    - Assets/Prefabs/Props/Containers.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_barrel_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_barrel_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_barrel_02.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_barrel_02.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_basket_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_basket_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_basket_02.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_basket_02.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_bathtub_wood_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_bathtub_wood_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_bowl_metal_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_bowl_metal_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_box_wood_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_box_wood_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_bucket_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_bucket_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_crate_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_crate_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_crate_02.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_crate_02.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_crate_03.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_crate_03.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_jug_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_jug_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_package_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_package_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_sack_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_sack_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_sack_02.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_sack_02.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_sack_02_set.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_sack_02_set.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_sack_open_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_sack_open_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_trough_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_trough_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_vase_01.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_vase_01.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_vase_02.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_vase_02.prefab.meta
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_vase_03.prefab
+    - Assets/Prefabs/Props/Containers/rpgpp_lt_vase_03.prefab.meta
+    - Assets/Prefabs/Props/Hangers.meta
+    - Assets/Prefabs/Props/Hangers/rpgpp_lt_hanger_clothes_01.prefab
+    - Assets/Prefabs/Props/Hangers/rpgpp_lt_hanger_clothes_01.prefab.meta
+    - Assets/Prefabs/Props/Hangers/rpgpp_lt_hanger_wood_01.prefab
+    - Assets/Prefabs/Props/Hangers/rpgpp_lt_hanger_wood_01.prefab.meta
+    - Assets/Prefabs/Props/Hangers/rpgpp_lt_hanger_wood_02.prefab
+    - Assets/Prefabs/Props/Hangers/rpgpp_lt_hanger_wood_02.prefab.meta
+    - Assets/Prefabs/Props/Items.meta
+    - Assets/Prefabs/Props/Items/rpgpp_lt_broom_01.prefab
+    - Assets/Prefabs/Props/Items/rpgpp_lt_broom_01.prefab.meta
+    - Assets/Prefabs/Props/Items/rpgpp_lt_ladder_01.prefab
+    - Assets/Prefabs/Props/Items/rpgpp_lt_ladder_01.prefab.meta
+    - Assets/Prefabs/Props/Items/rpgpp_lt_rake_01.prefab
+    - Assets/Prefabs/Props/Items/rpgpp_lt_rake_01.prefab.meta
+    - Assets/Prefabs/Props/Misc.meta
+    - Assets/Prefabs/Props/Misc/rpgpp_lt_bird_house_01.prefab
+    - Assets/Prefabs/Props/Misc/rpgpp_lt_bird_house_01.prefab.meta
+    - Assets/Prefabs/Props/Misc/rpgpp_lt_stones_01.prefab
+    - Assets/Prefabs/Props/Misc/rpgpp_lt_stones_01.prefab.meta
+    - Assets/Prefabs/Props/Misc/rpgpp_lt_wagon_01.prefab
+    - Assets/Prefabs/Props/Misc/rpgpp_lt_wagon_01.prefab.meta
+    - Assets/Prefabs/Props/Misc/rpgpp_lt_well_01.prefab
+    - Assets/Prefabs/Props/Misc/rpgpp_lt_well_01.prefab.meta
+    - Assets/Prefabs/Props/Shields.meta
+    - Assets/Prefabs/Props/Shields/rpgpp_lt_shield_wall_01a.prefab
+    - Assets/Prefabs/Props/Shields/rpgpp_lt_shield_wall_01a.prefab.meta
+    - Assets/Prefabs/Props/Shields/rpgpp_lt_shield_wall_01b.prefab
+    - Assets/Prefabs/Props/Shields/rpgpp_lt_shield_wall_01b.prefab.meta
+    - Assets/Prefabs/Props/Tables.meta
+    - Assets/Prefabs/Props/Tables/rpgpp_lt_table_01.prefab
+    - Assets/Prefabs/Props/Tables/rpgpp_lt_table_01.prefab.meta
+    - Assets/Prefabs/Props/Wood.meta
+    - Assets/Prefabs/Props/Wood/rpgpp_lt_log_wood_01.prefab
+    - Assets/Prefabs/Props/Wood/rpgpp_lt_log_wood_01.prefab.meta
+    - Assets/Prefabs/Props/Wood/rpgpp_lt_log_wood_02a.prefab
+    - Assets/Prefabs/Props/Wood/rpgpp_lt_log_wood_02a.prefab.meta
+    - Assets/Prefabs/Props/Wood/rpgpp_lt_log_wood_02b.prefab
+    - Assets/Prefabs/Props/Wood/rpgpp_lt_log_wood_02b.prefab.meta
+    - Assets/Presets.meta
+    - Assets/Presets/FBXImporter.preset
+    - Assets/Presets/FBXImporter.preset.meta
+    - Assets/Scene.meta
+    - Assets/Scene/main.unity
+    - Assets/Scene/main.unity.meta
+    - Assets/Scene/next.unity
+    - Assets/Scene/next.unity.meta
+    - Assets/Scene/rpgpp_lt_scene_1.0.meta
+    - Assets/Scene/rpgpp_lt_scene_1.0/LightingData.asset
+    - Assets/Scene/rpgpp_lt_scene_1.0/LightingData.asset.meta
+    - Assets/Scene/rpgpp_lt_scene_1.0/ReflectionProbe-0.exr
+    - Assets/Scene/rpgpp_lt_scene_1.0/ReflectionProbe-0.exr.meta
+    - Assets/Scene/rpgpp_lt_scene_1.0Settings.lighting
+    - Assets/Scene/rpgpp_lt_scene_1.0Settings.lighting.meta
+    - Assets/Scene/setting.unity
+    - Assets/Scene/setting.unity.meta
+    - Assets/TextMesh Pro.meta
+    - Assets/TextMesh Pro/Documentation.meta
+    - Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf
+    - Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
+    - Assets/TextMesh Pro/Examples & Extras.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Anton OFL.txt
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Anton OFL.txt.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Anton.ttf
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Anton.ttf.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Bangers - OFL.txt
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Bangers - OFL.txt.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Bangers.ttf
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Bangers.ttf.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Electronic Highway Sign.TTF
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Electronic Highway Sign.TTF.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Oswald-Bold - OFL.txt
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Oswald-Bold - OFL.txt.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Oswald-Bold.ttf
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Oswald-Bold.ttf.meta
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Roboto-Bold.ttf
+    - Assets/TextMesh Pro/Examples & Extras/Fonts/Roboto-Bold.ttf.meta
+    - Assets/TextMesh Pro/Examples & Extras/Materials.meta
+    - Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat
+    - Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat
+    - Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Surface Shader Scene.mat
+    - Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Surface Shader Scene.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Materials/Small Crate_diffuse.mat
+    - Assets/TextMesh Pro/Examples & Extras/Materials/Small Crate_diffuse.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Prefabs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Prefabs/Text Popup.prefab
+    - Assets/TextMesh Pro/Examples & Extras/Prefabs/Text Popup.prefab.meta
+    - Assets/TextMesh Pro/Examples & Extras/Prefabs/TextMeshPro - Prefab 1.prefab
+    - Assets/TextMesh Pro/Examples & Extras/Prefabs/TextMeshPro - Prefab 1.prefab.meta
+    - Assets/TextMesh Pro/Examples & Extras/Prefabs/TextMeshPro - Prefab 2.prefab
+    - Assets/TextMesh Pro/Examples & Extras/Prefabs/TextMeshPro - Prefab 2.prefab.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets/Blue
+      to Purple - Vertical.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets/Blue
+      to Purple - Vertical.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets/Dark
+      to Light Green - Vertical.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets/Dark
+      to Light Green - Vertical.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets/Light
+      to Dark Green - Vertical.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets/Light
+      to Dark Green - Vertical.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets/Yellow
+      to Orange - Vertical.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Color Gradient Presets/Yellow
+      to Orange - Vertical.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF
+      - Drop Shadow.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF
+      - Drop Shadow.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF
+      - Outline.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF
+      - Outline.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF
+      - Sunny Days.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF
+      - Sunny Days.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF
+      - Drop Shadow.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF
+      - Drop Shadow.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF
+      - Outline.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF
+      - Outline.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF
+      Glow.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF
+      Glow.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF
+      Logo.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF
+      Logo.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic
+      Highway Sign SDF.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic
+      Highway Sign SDF.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans
+      SDF - Metalic Green.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans
+      SDF - Metalic Green.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans
+      SDF - Overlay.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans
+      SDF - Overlay.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans
+      SDF - Soft Mask.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/LiberationSans
+      SDF - Soft Mask.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Oswald Bold
+      SDF.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Oswald Bold
+      SDF.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold
+      SDF - Drop Shadow.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold
+      SDF - Drop Shadow.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold
+      SDF - Surface.mat
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold
+      SDF - Surface.mat.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold
+      SDF.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold
+      SDF.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Sprite Assets.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Sprite Assets/Default Sprite
+      Asset.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Sprite Assets/Default Sprite
+      Asset.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Sprite Assets/DropCap Numbers.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Sprite Assets/DropCap Numbers.asset.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/01-  Single Line TextMesh Pro.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/01-  Single Line TextMesh Pro.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/02 - Multi-line TextMesh Pro.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/02 - Multi-line TextMesh Pro.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/03 - Line Justification.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/03 - Line Justification.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/04 - Word Wrapping.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/04 - Word Wrapping.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/05 - Style Tags.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/05 - Style Tags.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/06 - Extra Rich Text Examples.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/06 - Extra Rich Text Examples.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/07 - Superscript & Subscript Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/07 - Superscript & Subscript Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/08 - Improved Text Alignment.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/08 - Improved Text Alignment.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/09 - Margin Tag Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/09 - Margin Tag Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/10 - Bullets & Numbered List Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/10 - Bullets & Numbered List Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/11 - The Style Tag.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/11 - The Style Tag.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/12 - Link Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/12 - Link Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/12a - Text Interactions.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/12a - Text Interactions.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/13 - Soft Hyphenation.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/13 - Soft Hyphenation.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/14 - Multi Font & Sprites.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/14 - Multi Font & Sprites.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/15 - Inline Graphics & Sprites.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/15 - Inline Graphics & Sprites.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/16 - Linked text overflow mode
+      example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/16 - Linked text overflow mode
+      example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/17 - Old Computer Terminal.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/17 - Old Computer Terminal.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/18 - ScrollRect & Masking & Layout.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/18 - ScrollRect & Masking & Layout.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/19 - Masking Texture & Soft Mask.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/19 - Masking Texture & Soft Mask.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/20 - Input Field with Scrollbar.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/20 - Input Field with Scrollbar.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/22 - Basic Scripting Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/22 - Basic Scripting Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/23 - Animating Vertex Attributes.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/23 - Animating Vertex Attributes.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/24 - Surface Shader Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/24 - Surface Shader Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/25 - Sunny Days Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/25 - Sunny Days Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/26 - Dropdown Placeholder Example.unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/26 - Dropdown Placeholder Example.unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/Benchmark (Floating Text).unity
+    - Assets/TextMesh Pro/Examples & Extras/Scenes/Benchmark (Floating Text).unity.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark03.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark03.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark04.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark04.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/CameraController.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/ChatController.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/DropdownSample.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/DropdownSample.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/EnvMapAnimator.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/EnvMapAnimator.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/ObjectSpin.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/ObjectSpin.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/ShaderPropAnimator.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/ShaderPropAnimator.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/SimpleScript.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/SkewTextExample.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_DigitValidator.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_DigitValidator.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_ExampleScript_01.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_ExampleScript_01.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_FrameRateCounter.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_PhoneNumberValidator.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_PhoneNumberValidator.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventCheck.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextEventHandler.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextInfoDebugTool.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_A.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_TextSelector_B.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMP_UiFrameRateCounter.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMPro_InstructionOverlay.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TMPro_InstructionOverlay.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs
+    - Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs.meta
+    - Assets/TextMesh Pro/Examples & Extras/Sprites.meta
+    - Assets/TextMesh Pro/Examples & Extras/Sprites/Default Sprites.png
+    - Assets/TextMesh Pro/Examples & Extras/Sprites/Default Sprites.png.meta
+    - Assets/TextMesh Pro/Examples & Extras/Sprites/DropCap Numbers.psd
+    - Assets/TextMesh Pro/Examples & Extras/Sprites/DropCap Numbers.psd.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Brushed Metal 3.jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Brushed Metal 3.jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Floor Cement.jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Floor Cement.jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Floor Tiles 1 - diffuse.jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Floor Tiles 1 - diffuse.jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Fruit Jelly (B&W).jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Fruit Jelly (B&W).jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Gradient Diagonal (Color).jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Gradient Diagonal (Color).jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Gradient Horizontal (Color).jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Gradient Horizontal (Color).jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Gradient Vertical (Color).jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Gradient Vertical (Color).jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Mask Zig-n-Zag.psd
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Mask Zig-n-Zag.psd.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_diffuse.jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_normal.jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Small Crate_normal.jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Sunny Days - Seamless.jpg
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Sunny Days - Seamless.jpg.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text
+      Image 1.png
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text
+      Image 1.png.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text
+      UI Screenshot.png
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Text Overflow - Linked Text
+      UI Screenshot.png.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Circle.psd
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Circle.psd.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Diagonal.psd
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Diagonal.psd.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Radial Double.psd
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Radial Double.psd.meta
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Radial Quad.psd
+    - Assets/TextMesh Pro/Examples & Extras/Textures/Wipe Pattern - Radial Quad.psd.meta
+    - Assets/TextMesh Pro/Fonts.meta
+    - Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt
+    - Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta
+    - Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+    - Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta
+    - Assets/TextMesh Pro/Resources.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat.meta
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+    - Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset.meta
+    - Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
+    - Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta
+    - Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
+    - Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta
+    - Assets/TextMesh Pro/Resources/Sprite Assets.meta
+    - Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset
+    - Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta
+    - Assets/TextMesh Pro/Resources/Style Sheets.meta
+    - Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset
+    - Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta
+    - Assets/TextMesh Pro/Resources/TMP Settings.asset
+    - Assets/TextMesh Pro/Resources/TMP Settings.asset.meta
+    - Assets/TextMesh Pro/Shaders.meta
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader
+    - Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_SDF.shader
+    - Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMP_Sprite.shader
+    - Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta
+    - Assets/TextMesh Pro/Shaders/TMPro.cginc
+    - Assets/TextMesh Pro/Shaders/TMPro.cginc.meta
+    - Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc
+    - Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta
+    - Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc
+    - Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta
+    - Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc
+    - Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta
+    - Assets/TextMesh Pro/Sprites.meta
+    - Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt
+    - Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta
+    - Assets/TextMesh Pro/Sprites/EmojiOne.json
+    - Assets/TextMesh Pro/Sprites/EmojiOne.json.meta
+    - Assets/TextMesh Pro/Sprites/EmojiOne.png
+    - Assets/TextMesh Pro/Sprites/EmojiOne.png.meta
+    - Assets/Textures.meta
+    - Assets/Textures/rpgpp_lt_sky_a.tga
+    - Assets/Textures/rpgpp_lt_sky_a.tga.meta
+    - Assets/Textures/rpgpp_lt_tex_a.tga
+    - Assets/Textures/rpgpp_lt_tex_a.tga.meta
+    - Assets/font.meta
+    - Assets/font/MaruBuri-Bold.otf
+    - Assets/font/MaruBuri-Bold.otf.meta
+    - Assets/font/MaruBuri-ExtraLight.otf
+    - Assets/font/MaruBuri-ExtraLight.otf.meta
+    - Assets/font/MaruBuri-Light.otf
+    - Assets/font/MaruBuri-Light.otf.meta
+    - Assets/font/MaruBuri-Regular.otf
+    - Assets/font/MaruBuri-Regular.otf.meta
+    - Assets/font/MaruBuri-SemiBold.otf
+    - Assets/font/MaruBuri-SemiBold.otf.meta
+    - Assets/font/Mona Shark.ttf
+    - Assets/font/Mona Shark.ttf.meta
+    - Assets/font/MyWifeFont SDF.asset
+    - Assets/font/MyWifeFont SDF.asset.meta
+    - Assets/font/MyWifeFont.ttf
+    - Assets/font/MyWifeFont.ttf.meta
+    - "Assets/font/\uB098\uB214\uC190\uAE00\uC528\uB098\uC758\uC544\uB0B4\uC190\uAE00\uC528.ttf"
+    - "Assets/font/\uB098\uB214\uC190\uAE00\uC528\uB098\uC758\uC544\uB0B4\uC190\uAE00\uC528.ttf.meta"
+    - Assets/music.meta
+    - Assets/music/funky-motion-theme-337047.mp3
+    - Assets/music/funky-motion-theme-337047.mp3.meta
+    - Assets/script.meta
+    - Assets/script/LoadManager.cs
+    - Assets/script/LoadManager.cs.meta
+    - Assets/script/movement.cs
+    - Assets/script/movement.cs.meta
+    - Assets/script/tileText.cs
+    - Assets/script/tileText.cs.meta
+    - "Assets/\uBC30\uACBD2.fbx"
+    - "Assets/\uBC30\uACBD2.fbx.meta"
+    - Packages/manifest.json
+    - Packages/packages-lock.json
+    - ProjectSettings/AudioManager.asset
+    - ProjectSettings/ClusterInputManager.asset
+    - ProjectSettings/DynamicsManager.asset
+    - ProjectSettings/EditorBuildSettings.asset
+    - ProjectSettings/EditorSettings.asset
+    - ProjectSettings/GraphicsSettings.asset
+    - ProjectSettings/InputManager.asset
+    - ProjectSettings/MemorySettings.asset
+    - ProjectSettings/NavMeshAreas.asset
+    - ProjectSettings/Physics2DSettings.asset
+    - ProjectSettings/PresetManager.asset
+    - ProjectSettings/ProjectSettings.asset
+    - ProjectSettings/ProjectVersion.txt
+    - ProjectSettings/QualitySettings.asset
+    - ProjectSettings/TagManager.asset
+    - ProjectSettings/TimeManager.asset
+    - ProjectSettings/UnityConnectSettings.asset
+    - ProjectSettings/VFXManager.asset
+    - ProjectSettings/VersionControlSettings.asset
+    - 
+    m_Values: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  RevisionSummary: 
+  ChangesSearchValue: 
+  SelectedHistoryRevision: 
+  HistoryPageNumber: 0
+  TabIndex: 0
