@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6e7109b00f054d95c589878f5957b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 8
   cameraRelative: 1
   jumpUpForce: 3
   jumpForwardForce: 4
