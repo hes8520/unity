@@ -111,8 +111,11 @@ public class PlayerMovement : MonoBehaviour
         // 이동 (지상일 때만)
         if (isGrounded)
         {
-            Vector3 horizontal = moveInput * moveSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(rb.position + horizontal);
+            // 입력 방향 * 속도
+            Vector3 targetVelocity = moveInput * moveSpeed;
+        
+            // 중요: Y축(중력/점프)은 건드리지 않고 유지해야 함!
+            rb.velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
         }
 
         // 회전
