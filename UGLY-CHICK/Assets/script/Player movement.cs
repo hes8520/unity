@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections; // 코루틴 사용을 위해 필수
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
@@ -7,34 +8,46 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 6f;
     public bool cameraRelative = true;
 
-    [Header("Jump & Ground")]
-    public float jumpUpForce = 5f;        // 위로 튀는 힘
-    public float jumpForwardForce = 6f;   // 앞으로 튀는 힘
+    [Header("Roll (Dodge)")]
+    public float rollSpeed = 10f;      // 구르기 속도
+    public float rollDuration = 0.8f;  // 구르기 지속 시간 (애니메이션 길이와 비슷하게)
+    public float rollCooldown = 1.0f;  // 구르기 쿨타임
+    
+    [Header("Ground Check")]
     public LayerMask groundMask;
     public float groundCheckRadius = 0.2f;
     public Vector3 groundCheckOffset = new Vector3(0f, -0.9f, 0f);
 
-    // --- ★ 애니메이션 및 물리 변수 선언 ---
+    // --- ★ 상태 변수 (외부에서 접근 가능) ---
+    public bool isInvincible = false; // 무적 상태 확인용 (다른 스크립트에서 참조)
+
+    // 내부 변수
     Rigidbody rb;
     Transform cam;
-    Animator anim; // 애니메이터 컴포넌트
+    Animator anim;
     
     Vector3 moveInput;
     bool isGrounded;
-    bool jumpRequested = false; // 점프 요청 플래그 (물리 버그 수정용)
+    
+    // 구르기 관련 내부 변수
+    bool isRolling = false;
+    float lastRollTime = -99f; // 마지막 구르기 시간
+    Vector3 rollDirection;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         cam = Camera.main ? Camera.main.transform : null;
-
-        // --- ★ 애니메이터 컴포넌트 가져오기 ---
         anim = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
+        // 1. 구르기 중에는 방향 전환 입력을 받지 않음 (방향 고정)
+        if (isRolling) return;
+
+        // 2. 이동 입력 받기
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         Vector3 raw = new Vector3(x, 0f, z).normalized;
@@ -44,11 +57,9 @@ public class PlayerMovement : MonoBehaviour
             Vector3 camForward = cam.forward;
             camForward.y = 0;
             camForward.Normalize();
-
             Vector3 camRight = cam.right;
             camRight.y = 0;
             camRight.Normalize();
-
             moveInput = camForward * raw.z + camRight * raw.x;
         }
         else
@@ -56,36 +67,18 @@ public class PlayerMovement : MonoBehaviour
             moveInput = raw;
         }
 
-        // --- ★ "Super Jump" 버그 수정을 위해 Jump() 직접 호출 대신 '요청'만 함 ---
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            jumpRequested = true;
-        }
-
-        // --- ★ "IsMoving" 걷기 애니메이션 파라미터 업데이트 ---
+        // 3. 걷기 애니메이션
         if (anim != null)
         {
             anim.SetBool("IsWalking", moveInput.sqrMagnitude > 0.001f);
         }
-    }
 
-    void Jump()
-    {
-        // --- ★ "JumpTrigger" 점프 애니메이션 파라미터 실행 ---
-        if (anim != null)
+        // 4. 구르기 입력 (Spacebar = Jump 키 사용)
+        // 땅에 있고 + 쿨타임 지났고 + 구르는 중이 아닐 때
+        if (Input.GetButtonDown("Jump") && isGrounded && !isRolling && Time.time >= lastRollTime + rollCooldown)
         {
-            anim.SetTrigger("JumpTrigger");
+            StartCoroutine(Roll());
         }
-
-        // 모델 정면 = transform.forward (월드 기준) + 90도 보정
-        Vector3 modelForward = (transform.rotation * Quaternion.Euler(0, -90f, 0)) * Vector3.forward;
-
-        Vector3 force =
-            modelForward * jumpForwardForce   // 앞 방향
-            + Vector3.up * jumpUpForce;       // 위 방향
-
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); // 기존 위속 제거
-        rb.AddForce(force, ForceMode.Impulse);
     }
 
     void FixedUpdate()
@@ -94,40 +87,74 @@ public class PlayerMovement : MonoBehaviour
         Vector3 checkPos = transform.position + groundCheckOffset;
         isGrounded = Physics.CheckSphere(checkPos, groundCheckRadius, groundMask);
 
-        // --- ★ "IsGrounded" 땅 착지/공중 파라미터 업데이트 ---
         if (anim != null)
         {
             anim.SetBool("IsGrounded", isGrounded);
         }
 
-        // --- ★ 점프 요청 처리 (FixedUpdate에서 물리 실행) ---
-        if (jumpRequested)
-        {
-            Jump();
-            jumpRequested = false;
-            isGrounded = false; // 점프하는 순간 '땅에 닿지 않음'으로 강제
-        }
+        // 구르기 중일 때는 이동 로직을 코루틴(Roll)에게 맡김
+        if (isRolling) return;
 
-        // 이동 (지상일 때만)
+        // 일반 이동 (지상일 때만)
         if (isGrounded)
         {
-            // 입력 방향 * 속도
             Vector3 targetVelocity = moveInput * moveSpeed;
-        
-            // 중요: Y축(중력/점프)은 건드리지 않고 유지해야 함!
             rb.velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
         }
 
-        // 회전
+        // 회전 (이동 중일 때)
         if (moveInput.sqrMagnitude > 0.001f)
         {
             Quaternion targetRot = Quaternion.LookRotation(moveInput);
-
-            // 모델이 90도 틀어져 있음
-            targetRot *= Quaternion.Euler(0, 90f, 0);
-
+            targetRot *= Quaternion.Euler(0, 90f, 0); // 모델 보정
             rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRot, 12f * Time.fixedDeltaTime));
         }
+    }
+
+    // --- ★ 구르기 코루틴 (핵심 로직) ---
+    IEnumerator Roll()
+    {
+        isRolling = true;
+        isInvincible = true; // ★ 무적 시작
+        lastRollTime = Time.time;
+
+        // 1. 구를 방향 결정
+        // 이동 중이면 이동 방향으로, 멈춰있으면 캐릭터가 보는 방향(모델 보정 고려)으로 구름
+        if (moveInput.sqrMagnitude > 0.001f)
+        {
+            rollDirection = moveInput;
+        }
+        else
+        {
+            // 모델이 90도 돌아가 있으므로, forward 기준 왼쪽(-90)이 실제 정면
+             rollDirection = (transform.rotation * Quaternion.Euler(0, -90f, 0)) * Vector3.forward;
+        }
+
+        // 2. 애니메이션 실행
+        if (anim != null) anim.SetTrigger("Roll");
+
+        // 3. 구르기 동작 (지속 시간 동안)
+        float currentRollTime = 0f;
+        while (currentRollTime < rollDuration)
+        {
+            // 강제로 구르기 방향으로 속도 적용
+            rb.velocity = new Vector3(rollDirection.x * rollSpeed, rb.velocity.y, rollDirection.z * rollSpeed);
+            
+            // 회전도 구르는 방향을 보게 함
+            Quaternion targetRot = Quaternion.LookRotation(rollDirection);
+            targetRot *= Quaternion.Euler(0, 90f, 0);
+            rb.MoveRotation(targetRot);
+
+            currentRollTime += Time.deltaTime;
+            yield return null; // 다음 프레임까지 대기
+        }
+
+        // 4. 구르기 종료
+        isInvincible = false; // ★ 무적 해제
+        isRolling = false;
+        
+        // 끝나면 속도를 줄여줌 (미끄러짐 방지)
+        rb.velocity = Vector3.zero; 
     }
 
     void OnDrawGizmosSelected()

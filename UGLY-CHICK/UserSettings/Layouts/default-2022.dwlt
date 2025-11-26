@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 46
+  controlID: 51
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 47
+  controlID: 52
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 48
+  controlID: 53
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -340,8 +340,7 @@ MonoBehaviour:
     - {fileID: -2318398889076804798, guid: a5ff6e91d8bdc884dac7217a7002691d, type: 2}
     - {fileID: -38128840340073578, guid: 1f2f20c3897515f4198e88ae31bc7c9d, type: 2}
     - {fileID: -2318398889076804798, guid: be088c6675af9114ca558c9aa726b2bd, type: 2}
-    - {fileID: 2916727085128540846, guid: 3ddc918021df3b84ca8c7af0912c5dea, type: 2}
-    - {fileID: 2077560624939065240, guid: a97979a262866e04380db7a41e74f1a6, type: 2}
+    - {fileID: 5499352859325089115, guid: 3ddc918021df3b84ca8c7af0912c5dea, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.98285717
       e01: 0
@@ -375,14 +374,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.99714285
+    - e00: 0.72043574
       e01: 0
       e02: 0
-      e03: -34.857147
+      e03: 72.140656
       e10: 0
-      e11: 0.99714285
+      e11: 0.72043574
       e12: 0
-      e13: 246.67143
+      e13: 257.16263
       e20: 0
       e21: 0
       e22: 1
@@ -391,30 +390,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.73473686
+    - e00: 0.97168946
       e01: 0
       e02: 0
-      e03: -21.736847
+      e03: 3.9280517
       e10: 0
-      e11: 0.73473686
+      e11: 0.97168946
       e12: 0
-      e13: 244.04736
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
+      e13: 271.94012
       e20: 0
       e21: 0
       e22: 1
@@ -424,9 +407,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: a97979a262866e04380db7a41e74f1a6, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: be088c6675af9114ca558c9aa726b2bd, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 2077560624939065240, guid: a97979a262866e04380db7a41e74f1a6, type: 2}
+  - m_Target: {fileID: -2318398889076804798, guid: be088c6675af9114ca558c9aa726b2bd, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -508,23 +491,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scene/UGLY-CHICK
+    - Assets/script
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Scene/UGLY-CHICK
+  - Assets/script
   m_LastFoldersGridSize: 71
   m_LastProjectPath: D:\3D\unity\UGLY-CHICK
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 211}
-    m_SelectedIDs: 0a6e0000
-    m_LastClickedID: 28170
-    m_ExpandedIDs: 00000000786500007a6500007c6500007e65000080650000826500008465000086650000886500008a6500008c6500008e65000090650000926500009465000096650000986500009a6500009e650000a0650000a2650000b8650000ba650000ca650000c0670000c2670000c8670000cc6700000a6e000000ca9a3b
+    scrollPos: {x: 0, y: 547}
+    m_SelectedIDs: b06f0000
+    m_LastClickedID: 28592
+    m_ExpandedIDs: 00000000546f0000566f0000586f00005a6f00005c6f00005e6f0000606f0000626f0000646f0000666f0000686f00006a6f00006c6f00006e6f0000706f0000726f0000746f0000766f0000786f00007a6f00007c6f00007e6f0000806f0000826f0000846f0000866f0000886f00008a6f00008c6f0000a06f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -552,7 +535,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000786500007a6500007c6500007e65000080650000826500008465000086650000886500008a6500008c6500008e65000090650000926500009465000096650000986500009a6500009c6500009e650000a0650000a2650000
+    m_ExpandedIDs: 00000000546f0000566f0000586f00005a6f00005c6f00005e6f0000606f0000626f0000646f0000666f0000686f00006a6f00006c6f00006e6f0000706f0000726f0000746f0000766f0000786f00007a6f00007c6f00007e6f0000806f0000826f0000846f0000866f0000886f00008a6f00008c6f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -682,9 +665,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 126e0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: a083feff1ee6feffba05ffff0a0dffff5a14ffffa06affffba89ffffd6a2ffff3cb4ffffacb5ffffb4b5ffffb8b5ffffc0b5ffffc4b5ffffccb5ffffd0b5ffffd4b5ffffdcb5ffffe0b5ffffe4b5ffffecb5fffff0b5fffff8b5fffffcb5ffff04b6ffff08b6ffff0cb6ffffb2c1ffff12d3ffff46e0ffff10fbffff7c5f00000e8100009a810000bc81000038820000b6820000368300001e840000628400006c840000ba840000d484000050850000f087000060880000c89600006e9900004a130100f613010058140100be15010030160100e4190100
+      m_SelectedIDs: 787d0000
+      m_LastClickedID: 32120
+      m_ExpandedIDs: e8ecffffb0edffff10fbffff1e7e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1045,9 +1028,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 481.32443, y: -6.114551, z: 1464.8887}
+    m_Target: {x: 410.18405, y: 25.407171, z: 1550.3026}
     speed: 2
-    m_Value: {x: 481.32443, y: -6.114551, z: 1464.8887}
+    m_Value: {x: 410.18405, y: 25.407171, z: 1550.3026}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1093,13 +1076,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08464701, y: 0.8687211, z: -0.15942879, w: 0.4612612}
+    m_Target: {x: 0.0590264, y: 0.93800426, z: -0.19993025, w: 0.27696612}
     speed: 2
-    m_Value: {x: 0.08464612, y: 0.868712, z: -0.15942712, w: 0.46125638}
+    m_Value: {x: 0.05902586, y: 0.9379957, z: -0.19992842, w: 0.2769636}
   m_Size:
-    m_Target: 96.09762
+    m_Target: 3.4300041
     speed: 2
-    m_Value: 96.09762
+    m_Value: 3.4300041
   m_Ortho:
     m_Target: 0
     speed: 2

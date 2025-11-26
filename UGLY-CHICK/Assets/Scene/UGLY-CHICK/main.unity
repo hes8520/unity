@@ -2084,27 +2084,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d4c2c3562aa5ff34d831f93d8ad0df2e, type: 3}
   m_PrefabInstance: {fileID: 517179543}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &135899071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135899070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94d6e7109b00f054d95c589878f5957b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  cameraRelative: 1
-  jumpUpForce: 5
-  jumpForwardForce: 6
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 384
-  groundCheckRadius: 0.2
-  groundCheckOffset: {x: 0, y: -0.57, z: 0}
 --- !u!54 &135899075
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2178,6 +2157,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d4c2c3562aa5ff34d831f93d8ad0df2e, type: 3}
   m_PrefabInstance: {fileID: 517179543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &135899080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135899070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d6e7109b00f054d95c589878f5957b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 6
+  cameraRelative: 1
+  jumpUpForce: 5
+  jumpForwardForce: 6
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 384
+  groundCheckRadius: 0.2
+  groundCheckOffset: {x: 0, y: -0.9, z: 0}
 --- !u!1001 &137013773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7950,7 +7950,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d4c2c3562aa5ff34d831f93d8ad0df2e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 135899071}
+      addedObject: {fileID: 135899080}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d4c2c3562aa5ff34d831f93d8ad0df2e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 135899075}
