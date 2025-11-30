@@ -2845,7 +2845,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: fir tree tilted (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8705590334721968443, guid: 5fa97c9c40dbaae48986433f6cbbbcc7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
