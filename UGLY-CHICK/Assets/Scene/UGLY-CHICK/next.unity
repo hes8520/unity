@@ -65998,7 +65998,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b0ca2021fcbf049478228268ee044f37,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ca2021fcbf049478228268ee044f37,
         type: 3}
@@ -66008,7 +66008,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b0ca2021fcbf049478228268ee044f37,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ca2021fcbf049478228268ee044f37,
         type: 3}
@@ -66023,7 +66023,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b0ca2021fcbf049478228268ee044f37,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b0ca2021fcbf049478228268ee044f37,
         type: 3}
@@ -91176,13 +91176,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815597716}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.004, y: -0.015, z: -0.541}
   m_LocalScale: {x: 0.50505036, y: 0.5050505, z: 0.50505036}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1320900896}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &815892072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1681224996073516063, guid: bc51859a359a6124d9240419fc73341a,
@@ -143713,6 +143713,7 @@ MonoBehaviour:
   ammoText: {fileID: 1194076032}
   modelRotationOffset: 90
   bulletRotationOffset: 90
+  muzzleFlashRotationOffset: {x: 0, y: 0, z: 0}
   bulletPrefab: {fileID: 4843123081825610971, guid: f52bbad6a0abdf8469e861c41fce7439,
     type: 3}
   firePoint: {fileID: 815597717}
@@ -193173,7 +193174,7 @@ MonoBehaviour:
   rollCooldown: 1
   groundMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 4160
   groundCheckRadius: 0.1
   groundCheckOffset: {x: 0, y: -0.12, z: 0}
   isInvincible: 0

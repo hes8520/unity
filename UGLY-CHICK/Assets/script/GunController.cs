@@ -13,7 +13,10 @@ public class GunController : MonoBehaviour
     public float modelRotationOffset = 0f; 
 
     [Tooltip("★ 총알이 옆으로 나간다면 이 값을 조절하세요! (예: -90, 90)")]
-    public float bulletRotationOffset = 0f; // ★ 총알 각도 보정 변수 추가
+    public float bulletRotationOffset = 0f; 
+
+    [Tooltip("★ 머즐 이펙트가 돌아가 있다면 이 값으로 돌려주세요 (x, y, z) - 보통 (90, 0, 0) 추천")]
+    public Vector3 muzzleFlashRotationOffset; // [추가] 이펙트 각도 보정용 변수
 
     [Header("--- 총알 및 발사 설정 ---")]
     public GameObject bulletPrefab;      
@@ -95,8 +98,7 @@ public class GunController : MonoBehaviour
         currentAmmo--;
         UpdateAmmoUI();
 
-        // ★ [핵심 수정] 총구 방향에 '총알 보정 각도'를 더해서 최종 발사 방향을 계산
-        // Quaternion.Euler(0, 보정값, 0) * 기존방향 = 회전된 방향
+        // 총구 방향에 '총알 보정 각도'를 더해서 최종 발사 방향을 계산
         Vector3 aimDir = Quaternion.Euler(0, bulletRotationOffset, 0) * firePoint.forward;
 
         // --- 총알 생성 ---
@@ -116,10 +118,13 @@ public class GunController : MonoBehaviour
             Destroy(bullet, 3.0f);
         }
 
-        // --- 이펙트 ---
+        // --- 이펙트 (수정됨) ---
         if (muzzleFlashPrefab != null && firePoint != null)
         {
-            GameObject flash = Instantiate(muzzleFlashPrefab, firePoint.position, Quaternion.LookRotation(aimDir), firePoint);
+            // [수정] 기존 발사 방향(LookRotation)에 보정 각도(Euler)를 곱해줍니다.
+            Quaternion flashRotation = Quaternion.LookRotation(aimDir) * Quaternion.Euler(muzzleFlashRotationOffset);
+
+            GameObject flash = Instantiate(muzzleFlashPrefab, firePoint.position, flashRotation, firePoint);
             Destroy(flash, 0.5f); 
         }
 

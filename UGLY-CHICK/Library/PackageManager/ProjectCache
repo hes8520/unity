@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 639003620784859358
-    m_Hash: 931082586
+      ticks: 639004305315363348
+    m_Hash: 3351362943
   m_LockFileStatus:
     m_FilePath: D:/3D/unity/UGLY-CHICK/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 639003621524837217
-    m_Hash: 1224691695
+      ticks: 639004305315423766
+    m_Hash: 3944080959
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -154,12 +154,12 @@ m_ResolvedPackages:
       scopePatternExpression: 
       message: 
       readMoreLink: 
-- packageId: com.unity.burst@1.8.25
+- packageId: com.unity.burst@1.8.26
   testable: 0
   isDirectDependency: 1
-  version: 1.8.25
+  version: 1.8.26
   source: 1
-  resolvedPath: D:\3D\unity\UGLY-CHICK\Library\PackageCache\com.unity.burst@1df634d836b8
+  resolvedPath: D:\3D\unity\UGLY-CHICK\Library\PackageCache\com.unity.burst@21aa83e7fd8f
   assetPath: Packages/com.unity.burst
   name: com.unity.burst
   displayName: Burst
@@ -346,13 +346,13 @@ m_ResolvedPackages:
   entitlements:
     licensingModel: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638936354350140000
+  datePublishedTicks: 638996703344130000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.burst@1.8/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/burst.git
-    revision: 05afff266a602147349dc3706f2c09210e05ec2f
+    revision: 78a5cce909c0faf2e0a4f984fdf94e27f8b0745b
     path: 
   unityLifecycle:
     version: 1.8.25
@@ -365,20 +365,21 @@ m_ResolvedPackages:
   git:
     hash: 
     revision: 
-  upmReserved: '{"changelog":"### Fixed\n- Fixed infinite loop and unbounded memory
-    consumption when having a (possibly indirectly) recursive method with the `[MethodImpl(MethodImplOptions.AggressiveInlining)]`
-    attribute\n- Fixes an issue where `math.min` and `math.max` would do signed comparisons
-    on unsigned integers when compiling with `FloatMode.Fast`.\n- Fixed a crash on
-    some Android devices what would be triggered when \"Enable ARMv9 Security Features\"
-    was enabled.\n- Fixed a rare crash that could happen when the Burst package was
-    unloaded.\n- Fixed relocation error when stack protection was enabled on 32-bit
-    Android.\n\n### Added\n- Added LLVM 20 support\n- Added guards to UWP ARM32 to
-    be available only for versions lower than 6.3 [PLAT-15016](https://jira.unity3d.com/browse/PLAT-15016)\n-
-    `FloatMode.Deterministic` is now supported by Burst. Please refer to the documentation
-    for details."}'
+  upmReserved: '{"changelog":"### Added\n- Enable Burst on Web Platform\n- Enabled
+    Apple Hardened Runtime for Burst runtime libraries.\n- Burst now supports `typeof`
+    comparison - e.g. `if (typeof(int) == typeof(T))`. `GetType()` remains invalid
+    in Burst-compiled code, and all other members on `Type` instances remain invalid,
+    but equality (`==`) and inequality (`!=`) are now supported for types created
+    via `typeof`. These comparisons compile to compile-time constants.\n\n### Removed\n\n###
+    Changed\n\n### Fixed\n- An issue where the rendering in the inspector would break
+    down on Very large listings.\n- Fixed Windows runtime executable digital signatures,
+    eliminating any false-positive antivirus hits.\n- [PLAT-15945](https://jira.unity3d.com/browse/PLAT-15945):
+    Embedded Linux target triplets for Editor version 6.4\n- Fix crash during inlining
+    optimisation. Ensure inlines are removed when they are no longer valid.\n\n###
+    Known Issues\n\n### Purpose"}'
   assetStore:
     productId: 
-  fingerprint: 1df634d836b8106f13dc82401a91b336d615a874
+  fingerprint: 21aa83e7fd8fcc79eafc5f662d434afb183153d6
   editorCompatibility:
     compatibilityLevel: 0
     minimumPackageVersion: 1.8.25
@@ -1367,7 +1368,7 @@ m_ResolvedPackages:
   - name: com.unity.render-pipelines.core
     version: 17.0.4
   - name: com.unity.burst
-    version: 1.8.25
+    version: 1.8.26
   - name: com.unity.mathematics
     version: 1.3.2
   - name: com.unity.modules.jsonserialize
@@ -4825,7 +4826,7 @@ m_ResolvedPackages:
     version: 1.0.1
   resolvedDependencies:
   - name: com.unity.burst
-    version: 1.8.25
+    version: 1.8.26
   - name: com.unity.mathematics
     version: 1.3.2
   - name: com.unity.modules.jsonserialize
@@ -4938,7 +4939,7 @@ m_ResolvedPackages:
   - name: com.unity.render-pipelines.core
     version: 17.0.4
   - name: com.unity.burst
-    version: 1.8.25
+    version: 1.8.26
   - name: com.unity.mathematics
     version: 1.3.2
   - name: com.unity.modules.jsonserialize
@@ -5047,7 +5048,7 @@ m_ResolvedPackages:
   - name: com.unity.render-pipelines.core
     version: 17.0.4
   - name: com.unity.burst
-    version: 1.8.25
+    version: 1.8.26
   - name: com.unity.mathematics
     version: 1.3.2
   - name: com.unity.modules.jsonserialize
@@ -5755,7 +5756,7 @@ m_ResolvedPackages:
     version: 3.0.3
   resolvedDependencies:
   - name: com.unity.burst
-    version: 1.8.25
+    version: 1.8.26
   - name: com.unity.mathematics
     version: 1.3.2
   - name: com.unity.modules.jsonserialize
@@ -5859,7 +5860,7 @@ m_ResolvedPackages:
   - name: com.unity.collections
     version: 2.6.2
   - name: com.unity.burst
-    version: 1.8.25
+    version: 1.8.26
   - name: com.unity.mathematics
     version: 1.3.2
   - name: com.unity.modules.jsonserialize
