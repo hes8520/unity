@@ -11,6 +11,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 148410
   packageName: RPG Poly Pack - Lite
-  packageVersion: 1.0
-  assetPath: Assets/RPGPP_LT/Materials/rpgpp_lt_cloud_a.mat
-  uploadId: 316754
+  packageVersion: 1.0.1
+  assetPath: Assets/Materials/rpgpp_lt_cloud_a.mat
+  uploadId: 767010

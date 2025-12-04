@@ -8,6 +8,7 @@ public class Change : MonoBehaviour
     public void SceneChange()
     {
         SceneManager.LoadScene("next");
-
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

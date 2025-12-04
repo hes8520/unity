@@ -70,6 +70,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 148410
   packageName: RPG Poly Pack - Lite
-  packageVersion: 1.0
-  assetPath: Assets/RPGPP_LT/Textures/rpgpp_lt_sky_a.tga
-  uploadId: 316754
+  packageVersion: 1.0.1
+  assetPath: Assets/Textures/rpgpp_lt_sky_a.tga
+  uploadId: 767010

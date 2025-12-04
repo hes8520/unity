@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             Vector3 targetVelocity = moveInput * moveSpeed;
-            rb.velocity = new Vector3(targetVelocity.x, rb.velocity.y, targetVelocity.z);
+            rb.linearVelocity = new Vector3(targetVelocity.x, rb.linearVelocity.y, targetVelocity.z);
         }
 
         // 회전 (이동 중일 때)
@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         while (currentRollTime < rollDuration)
         {
             // 강제로 구르기 방향으로 속도 적용
-            rb.velocity = new Vector3(rollDirection.x * rollSpeed, rb.velocity.y, rollDirection.z * rollSpeed);
+            rb.linearVelocity = new Vector3(rollDirection.x * rollSpeed, rb.linearVelocity.y, rollDirection.z * rollSpeed);
             
             // 회전도 구르는 방향을 보게 함
             Quaternion targetRot = Quaternion.LookRotation(rollDirection);
@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         isRolling = false;
         
         // 끝나면 속도를 줄여줌 (미끄러짐 방지)
-        rb.velocity = Vector3.zero; 
+        rb.linearVelocity = Vector3.zero; 
     }
 
     void OnDrawGizmosSelected()

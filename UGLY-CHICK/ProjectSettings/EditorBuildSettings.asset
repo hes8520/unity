@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/The_Viking_Village.unity
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scene/UGLY-CHICK/main.unity
     guid: d2809ab9b90eea7419d8d90d4c505d35
@@ -12,6 +15,10 @@ EditorBuildSettings:
     path: Assets/Scene/UGLY-CHICK/next.unity
     guid: 7d5e3e37e99f33c41adda50ee4c8fa7b
   - enabled: 1
+    path: Assets/Scene/UGLY-CHICK/setting.unity
+    guid: 5c02b1eb42fc4b241a2670a8da72e16d
+  - enabled: 1
     path: Assets/Scene/UGLY-CHICK/BOSS-cut.unity
     guid: f523234e76a587d43acbd6d98c234b15
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
