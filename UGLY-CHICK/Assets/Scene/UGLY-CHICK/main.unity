@@ -15779,6 +15779,9 @@ MonoBehaviour:
   target: {fileID: 135899079}
   moveSpeed: 4
   rotateSpeed: 8
+  attackRange: 2
+  detectionRange: 10
+  gravityScale: 5
 --- !u!54 &284006866
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -85678,7 +85681,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ae09728dbc3b9e64eb1f5e780985b7e4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.684595
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ae09728dbc3b9e64eb1f5e780985b7e4,
         type: 3}
