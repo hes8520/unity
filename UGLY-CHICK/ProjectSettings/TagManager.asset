@@ -12,7 +12,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - SafeZone
   - Water
   - UI
   - Player
@@ -24,7 +24,7 @@ TagManager:
   - Ground
   - AccessibleVolume
   - PostProcessing
-  - 
+  - Minimap
   - MainGround
   - 
   - 

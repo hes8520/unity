@@ -1,57 +1,79 @@
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    private int currentHealth;
+    public float maxHealth = 1000f;
+    public float currentHealth;
+    
+    [Header("설정")]
+    public float battleRange = 20.0f; // 이 거리 안으로 오면 체력바 켜짐
 
-    [Header("UI 연결")]
-    public Slider healthSlider; 
+    [Header("UI 연결 (Hierarchy에 있는 슬라이더!)")]
+    public Slider healthSlider;      
+    public GameObject healthBarUI;   
+
+    private Transform player;
+    private bool isDead = false;
 
     void Start()
     {
         currentHealth = maxHealth;
-
-        if (healthSlider != null)
-        {
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
-            
-            // ★ [추가] 게임 시작할 때 체력바를 일단 숨김
-            healthSlider.gameObject.SetActive(false); 
-        }
-    }
-
-    // ★ [추가] 외부(락온 시스템)에서 체력바를 끄고 켤 수 있게 만드는 함수
-    public void ShowHealthBar(bool isVisible)
-    {
-        if (healthSlider != null)
-        {
-            healthSlider.gameObject.SetActive(isVisible);
-        }
-    }
-
-    public void TakeDamage(int damageAmount)
-    {
-        currentHealth -= damageAmount;
         
-        if (healthSlider != null)
-        {
-            healthSlider.value = currentHealth;
+        // 1. 슬라이더 설정
+        if (healthSlider != null) 
+        { 
+            healthSlider.maxValue = maxHealth; 
+            healthSlider.value = currentHealth; 
         }
+        
+        // 2. 플레이어 찾기
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null) player = playerObj.transform;
 
-        if (currentHealth <= 0)
+        // 3. 시작할 때는 일단 숨겨두기 (깜짝 등장 위해)
+        if (healthBarUI != null) healthBarUI.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (isDead || player == null || healthBarUI == null) return;
+
+        // 4. 거리 계산
+        float distance = Vector3.Distance(transform.position, player.position);
+        
+        // ★ [핵심] 거리가 가까우면 켜고, 멀면 끈다!
+        if (distance <= battleRange) 
         {
-            Die();
+            if (!healthBarUI.activeSelf) healthBarUI.SetActive(true);
         }
+        else if (distance > battleRange + 10f) 
+        {
+            // 전투 중이 아닐 때만 끄기 (싸우다 도망가면 꺼짐)
+            if (healthBarUI.activeSelf) healthBarUI.SetActive(false);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (isDead) return;
+        
+        // ★ [핵심] 맞으면 거리 상관없이 무조건 켠다!
+        if (healthBarUI != null && !healthBarUI.activeSelf) 
+        {
+            healthBarUI.SetActive(true);
+        }
+        
+        currentHealth -= damage;
+        if (healthSlider != null) healthSlider.value = currentHealth;
+
+        if (currentHealth <= 0) Die();
     }
 
     void Die()
     {
-        if (healthSlider != null)
-            healthSlider.gameObject.SetActive(false);
-
-        Destroy(gameObject);
+        isDead = true;
+        if (healthBarUI != null) healthBarUI.SetActive(false);
+        Destroy(gameObject, 2.0f);
     }
 }

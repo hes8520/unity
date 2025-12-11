@@ -22,7 +22,7 @@ public class LockOnSystem : MonoBehaviour
 
     void Update()
     {
-        // 락온 토글 (Tab 키)
+        // 락온 토글 (Tab 키 또는 휠 버튼)
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetMouseButtonDown(2))
         {
             if (isLockedOn)
@@ -37,10 +37,12 @@ public class LockOnSystem : MonoBehaviour
             if (lockOnIcon != null)
             {
                 lockOnIcon.gameObject.SetActive(true);
+                // 타겟 머리 위쪽으로 아이콘 위치 갱신
                 Vector3 screenPos = mainCam.WorldToScreenPoint(currentTarget.position + Vector3.up * 2f);
                 lockOnIcon.transform.position = screenPos;
             }
 
+            // 타겟이 죽거나 사라지면 락온 해제
             if (!currentTarget.gameObject.activeInHierarchy)
             {
                 Unlock();
@@ -59,6 +61,7 @@ public class LockOnSystem : MonoBehaviour
         float closestDist = Mathf.Infinity;
         Transform bestTarget = null;
 
+        // 가장 가까운 적 찾기
         foreach (Collider enemy in enemies)
         {
             float dist = Vector3.Distance(transform.position, enemy.transform.position);
@@ -75,26 +78,13 @@ public class LockOnSystem : MonoBehaviour
             isLockedOn = true;
             Debug.Log("락온 대상: " + currentTarget.name);
 
-            // ★ [추가] 락온된 적의 BossHealth를 찾아서 체력바를 켭니다.
-            BossHealth bossHealth = currentTarget.GetComponent<BossHealth>();
-            if (bossHealth != null)
-            {
-                bossHealth.ShowHealthBar(true); // 켜기!
-            }
+            // [삭제됨] 여기서 체력바를 켜던 코드를 없앴습니다.
         }
     }
 
     public void Unlock()
     {
-        // ★ [추가] 락온을 풀기 전에, 기존 타겟의 체력바를 끕니다.
-        if (currentTarget != null)
-        {
-            BossHealth bossHealth = currentTarget.GetComponent<BossHealth>();
-            if (bossHealth != null)
-            {
-                bossHealth.ShowHealthBar(false); // 끄기!
-            }
-        }
+        // [삭제됨] 여기서 체력바를 끄던 코드를 없앴습니다.
 
         isLockedOn = false;
         currentTarget = null;

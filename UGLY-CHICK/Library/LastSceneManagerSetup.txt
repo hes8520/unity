@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scene/UGLY-CHICK/next.unity
+- path: Assets/Scene/UGLY-CHICK/BOSS-cut.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

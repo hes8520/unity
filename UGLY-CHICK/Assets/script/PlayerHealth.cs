@@ -1,25 +1,55 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections; // ÄÚ·çÆ¾(ÄğÅ¸ÀÓ) »ç¿ëÀ» À§ÇØ Ãß°¡
+using System.Collections;
 
 public class HealthBar : MonoBehaviour
 {
+    // â˜… [ì¶”ê°€] ì–´ë””ì„œë“ (í€µìŠ¬ë¡¯ ë“±) ë‚´ ì²´ë ¥ì— ì ‘ê·¼í•  ìˆ˜ ìˆê²Œ ë§Œë“œëŠ” 'ì‹±ê¸€í†¤'
+    public static HealthBar Instance;
+
+    [Header("UI ì—°ê²°")]
     public Slider slider;
 
+    [Header("ì²´ë ¥ ì„¤ì •")]
     public float maxHealth = 100f;
     private float currentHealth;
 
     private const float ENEMY_DAMAGE = 20f;
 
-    // ÄğÅ¸ÀÓ º¯¼ö
-    private bool canTakeDamage = true; // ÇöÀç µ¥¹ÌÁö¸¦ ¹ŞÀ» ¼ö ÀÖ´ÂÁö ¿©ºÎ
-    public float invincibilityTime = 0.5f; // ¹«Àû ½Ã°£ (0.5ÃÊ ¼³Á¤)
+    // ì¿¨íƒ€ì„ ë³€ìˆ˜
+    private bool canTakeDamage = true;
+    public float invincibilityTime = 0.5f;
+
+    void Awake()
+    {
+        // â˜… [ì¶”ê°€] ì‹±ê¸€í†¤ ì´ˆê¸°í™”
+        if (Instance == null) Instance = this;
+    }
 
     void Start()
     {
         currentHealth = maxHealth;
-        slider.maxValue = maxHealth;
-        slider.value = currentHealth;
+        if (slider != null)
+        {
+            slider.maxValue = maxHealth;
+            slider.value = currentHealth;
+        }
+    }
+
+    // â˜… [ì¶”ê°€] ì²´ë ¥ íšŒë³µ í•¨ìˆ˜ (í€µìŠ¬ë¡¯ì—ì„œ í˜¸ì¶œ)
+    public void Heal(float amount)
+    {
+        if (currentHealth <= 0) return; // ì£½ì—ˆìœ¼ë©´ íšŒë³µ ë¶ˆê°€
+
+        currentHealth += amount;
+        
+        // ìµœëŒ€ ì²´ë ¥ì„ ë„˜ì§€ ì•Šë„ë¡ ì œí•œ
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+
+        // UI ê°±ì‹ 
+        if (slider != null) slider.value = currentHealth;
+
+        Debug.Log($"ì²´ë ¥ íšŒë³µ! í˜„ì¬ ì²´ë ¥: {currentHealth}");
     }
 
     public void TakeDamage(float damage)
@@ -27,7 +57,7 @@ public class HealthBar : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
 
-        slider.value = currentHealth;
+        if (slider != null) slider.value = currentHealth;
 
         if (currentHealth <= 0)
         {
@@ -35,45 +65,26 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    // Á¢ÃË À¯Áö ½Ã Áö¼Ó ÇÇÇØ °¨Áö
     private void OnTriggerStay(Collider other)
     {
-        // "sword1"°ú Á¢ÃË ÁßÀÌ¸ç, ÇöÀç µ¥¹ÌÁö¸¦ ¹ŞÀ» ¼ö ÀÖ´Â »óÅÂÀÎÁö È®ÀÎ
+        // "sword1"ê³¼ ì ‘ì´‰ ì¤‘ì´ë©°, ë°ë¯¸ì§€ë¥¼ ë°›ì„ ìˆ˜ ìˆëŠ” ìƒíƒœì¸ì§€ í™•ì¸
         if (other.gameObject.name == "sword1" && canTakeDamage)
         {
             TakeDamage(ENEMY_DAMAGE);
-
-            // µ¥¹ÌÁö¸¦ ÀÔÈù ÈÄ ÄğÅ¸ÀÓ ÄÚ·çÆ¾ ½ÃÀÛ
             StartCoroutine(DamageCooldown());
         }
     }
 
-    // ÄğÅ¸ÀÓÀ» °ü¸®ÇÏ´Â ÄÚ·çÆ¾
     private IEnumerator DamageCooldown()
     {
-        canTakeDamage = false; // ¹«Àû ½ÃÀÛ
-        yield return new WaitForSeconds(invincibilityTime); // ¼³Á¤µÈ ½Ã°£¸¸Å­ ´ë±â
-        canTakeDamage = true; // ¹«Àû ÇØÁ¦
+        canTakeDamage = false; 
+        yield return new WaitForSeconds(invincibilityTime); 
+        canTakeDamage = true; 
     }
 
     void Die()
     {
         Debug.Log("Player Died! Game Over!");
-
-        // 1. ÇÃ·¹ÀÌ¾î ¿ÀºêÁ§Æ® ºñÈ°¼ºÈ­
         gameObject.SetActive(false);
-
-        // 2. UIManager °ü·Ã ÄÚµå¸¦ Á¦°Å/ÁÖ¼® Ã³¸®Çß½À´Ï´Ù.
-        // UIManager Å¬·¡½º Á¤ÀÇ ¿À·ù¸¦ ÇØ°áÇÑ ÈÄ ´Ù½Ã Ãß°¡ÇØ¾ß ÇÕ´Ï´Ù.
-
-        // if (UIManager.instance != null)
-        // {
-        //     UIManager.instance.SetActiveGameoverUI(true);
-        // }
-    }
-
-    void LateUpdate()
-    {
-
     }
 }

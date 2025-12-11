@@ -2,39 +2,56 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage = 10;
+    [Header("총알 설정")]
+    public float speed = 50f;   // 총알 속도
+    public float damage = 10f;  // 데미지
+    public float lifeTime = 3f; // 수명 (3초 뒤 삭제)
 
-    // Is Trigger가 체크되어 있어야 합니다!
+    void Start()
+    {
+        // 시작하자마자 앞으로 날아가도록 속도 설정
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            // Unity 6버전 이상: linearVelocity
+            // Unity 2022 이하 구버전: velocity
+            rb.linearVelocity = transform.forward * speed; 
+        }
+
+        // 일정 시간이 지나면 자동으로 삭제 (성능 관리)
+        Destroy(gameObject, lifeTime);
+    }
+
+    // 물체와 충돌했을 때 실행되는 함수 (Is Trigger 체크 필수)
     void OnTriggerEnter(Collider other)
     {
-        // ★ 무엇과 부딪혔는지 콘솔에 범인을 출력합니다.
-        Debug.Log("총알이 부딪힌 물체: " + other.name);
+        // ★ [핵심] 부딪힌 물체의 레이어가 "NoSpawn"이면 무시! (투명벽 통과)
+        if (other.gameObject.layer == LayerMask.NameToLayer("SafeZone"))
+        {
+            return; // 아무 일도 하지 않고 함수 종료 (Destroy 안 됨)
+        }
 
+        // 플레이어 몸에 맞았을 때도 무시 (자해 방지)
+        if (other.CompareTag("Player")) 
+        {
+            return; 
+        }
+
+        // 보스 몬스터 피격 판정
         BossHealth boss = other.GetComponent<BossHealth>();
-        if (boss == null)
+        // 혹시 콜라이더가 자식에 있을 수 있으니 부모에서도 찾음
+        if (boss == null) 
         {
             boss = other.GetComponentInParent<BossHealth>();
         }
 
         if (boss != null)
         {
-            Debug.Log(">> 보스 감지 성공! 데미지 줌");
-            boss.TakeDamage(damage);
-            Destroy(gameObject);
+            boss.TakeDamage(damage); // 보스 체력 깎기
+            // Debug.Log("보스 명중!");
         }
-        else
-        {
-            // 보스가 아닌데 부딪혔다면?
-            // 플레이어 몸이면 무시, 아니면 삭제
-            if (other.gameObject.CompareTag("Player"))
-            {
-                Debug.Log(">> 내 몸에 맞음 (무시)");
-                return; // 내 몸이면 그냥 통과
-            }
-            
-            // 벽이나 바닥이면 삭제
-            Debug.Log(">> 벽이나 장애물에 맞음");
-            Destroy(gameObject);
-        }
+
+        // 보스든 벽이든, "NoSpawn"과 "Player"가 아닌 것에 맞았으면 총알 삭제
+        Destroy(gameObject);
     }
 }

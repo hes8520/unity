@@ -1,20 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.UI; // Slider »ç¿ëÀ» À§ÇØ Ãß°¡
 
 public class EnemyHealth : MonoBehaviour
 {
-    // Ã¼·Â ¹Ù ½½¶óÀÌ´õ¸¦ ¿¬°áÇÒ º¯¼ö
     public Slider healthSlider;
-
-    // ÃÖ´ë Ã¼·Â (µÎ ¹ß¿¡ Á×µµ·Ï 100 ¼³Á¤)
     public float maxHealth = 100f;
     private float currentHealth;
+    
+    // â˜… [ì¶”ê°€] ë“œë ì•„ì´í…œ ì„¤ì •
+    [Header("ì•„ì´í…œ ë“œë")]
+    public GameObject dropItemPrefab; // ë–¨ì–´íŠ¸ë¦´ ì•„ì´í…œ í”„ë¦¬íŒ¹
+    [Range(0, 100)] 
+    public int dropChance = 50;       // ë“œë í™•ë¥  (0~100%)
 
-    // ÃÑ¾ËÀÇ µ¥¹ÌÁö »ó¼ö (ÇÑ ¹ß´ç 50)
     private const float BULLET_DAMAGE = 50f;
-
-    // ½Ã°¢ È¿°ú º¯¼ö
     private Renderer enemyRenderer;
     private Color originalColor;
     public Color hitColor = Color.red;
@@ -22,17 +22,14 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        // 1. ÇöÀç Ã¼·ÂÀ» ÃÖ´ë Ã¼·ÂÀ¸·Î ÃÊ±âÈ­
         currentHealth = maxHealth;
 
-        // 2. Ã¼·Â ¹Ù Slider ÃÊ±âÈ­ ·ÎÁ÷ (»õ·Î Ãß°¡/¼öÁ¤)
         if (healthSlider != null)
         {
-            healthSlider.maxValue = maxHealth; // ½½¶óÀÌ´õÀÇ ÃÖ´ë°ªÀ» ¼³Á¤
-            healthSlider.value = currentHealth; // ½½¶óÀÌ´õÀÇ ÇöÀç °ªÀ» ÃÖ´ëÄ¡·Î ¼³Á¤ (°¡µæ Âü)
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
         }
 
-        // 3. ·»´õ·¯ ÃÊ±âÈ­ ·ÎÁ÷ (±âÁ¸ ÄÚµå)
         enemyRenderer = GetComponentInChildren<Renderer>();
         if (enemyRenderer != null)
         {
@@ -40,47 +37,27 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// ¿ÜºÎ¿¡¼­ µ¥¹ÌÁö¸¦ ÀÔÈú ¶§ È£ÃâÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù.
-    /// </summary>
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0f);
 
-        Debug.Log("Enemy took damage. Current Health: " + currentHealth);
+        if (healthSlider != null) healthSlider.value = currentHealth;
 
-        // 4. (Ãß°¡) µ¥¹ÌÁö¸¦ ÀÔÀ» ¶§¸¶´Ù Slider °ª ¾÷µ¥ÀÌÆ®
-        if (healthSlider != null)
-        {
-            healthSlider.value = currentHealth;
-        }
-
-        // ÇÇ°İ ½Ã »ö»ó ±ôºıÀÓ È¿°ú ½ÃÀÛ
         if (enemyRenderer != null && currentHealth > 0)
-        {
             StartCoroutine(FlashColor());
-        }
 
-        // Ã¼·ÂÀÌ 0 ÀÌÇÏ°¡ µÇ¸é Die ÇÔ¼ö È£Ãâ
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
-    /// <summary>
-    /// ÀûÀÌ ÃÑ¾Ë(Bullet)¿¡ ¸Â¾ÒÀ» ¶§ µ¥¹ÌÁö¸¦ Ã³¸®ÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù.
-    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
-        // 1. Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ "Bullet" ÅÂ±×¸¦ °¡Á³´ÂÁö È®ÀÎ
         if (other.CompareTag("Bullet"))
         {
-            // 2. µ¥¹ÌÁö Àû¿ë
             TakeDamage(BULLET_DAMAGE);
-
-            // 3. (ÇÊ¼ö) ÃÑ¾Ë ¿ÀºêÁ§Æ® ÆÄ±«
             Destroy(other.gameObject);
         }
     }
@@ -92,14 +69,26 @@ public class EnemyHealth : MonoBehaviour
         enemyRenderer.material.color = originalColor;
     }
 
-    /// <summary>
-    /// ÀûÀÌ »ç¸ÁÇßÀ» ¶§ Ã³¸®ÇÏ´Â ·ÎÁ÷ÀÔ´Ï´Ù.
-    /// </summary>
     void Die()
     {
-        Debug.Log("Enemy Died!");
+        // â˜… [ìˆ˜ì •] ëœë¤ í™•ë¥ ë¡œ ì•„ì´í…œ ë“œë
+        int randomValue = Random.Range(0, 100); // 0ë¶€í„° 99ê¹Œì§€ ìˆ«ì ë½‘ê¸°
 
-        // Àû ¿ÀºêÁ§Æ®¸¦ ¾À¿¡¼­ ÆÄ±«ÇÕ´Ï´Ù.
+        if (randomValue < dropChance)
+        {
+            // ë‹¹ì²¨!
+            if (dropItemPrefab != null)
+            {
+                // ì  ìœ„ì¹˜ë³´ë‹¤ ì‚´ì§ ìœ„(Y+1)ì— ìƒì„±
+                Instantiate(dropItemPrefab, transform.position + Vector3.up, Quaternion.identity);
+                Debug.Log("âœ¨ ì•„ì´í…œ ë“œë ì„±ê³µ!");
+            }
+        }
+        else
+        {
+            Debug.Log("ğŸ’¨ ê½! (ë“œë ì‹¤íŒ¨)");
+        }
+
         Destroy(gameObject);
     }
 }
