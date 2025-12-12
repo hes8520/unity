@@ -15780,7 +15780,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotateSpeed: 8
   attackRange: 2
-  detectionRange: 10
+  detectionRange: 20
   gravityScale: 5
 --- !u!54 &284006866
 Rigidbody:
@@ -15850,7 +15850,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.98, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &286826919 stripped
 Transform:

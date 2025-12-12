@@ -69,10 +69,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else moveInput = raw;
 
-        // 걷기 애니메이션
-        if (anim != null)
-            anim.SetBool("IsWalking", moveInput.sqrMagnitude > 0.001f);
-
         // 구르기 입력
         if (Input.GetButtonDown("Jump") && isGrounded && !isRolling &&
             Time.time >= lastRollTime + rollCooldown)
