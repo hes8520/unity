@@ -816,7 +816,7 @@ MonoBehaviour:
   moveSpeed: 4
   rotateSpeed: 8
   attackRange: 0.6
-  detectionRange: 10
+  detectionRange: 25
   gravityScale: 5
 --- !u!65 &4063767793668987171
 BoxCollider:
