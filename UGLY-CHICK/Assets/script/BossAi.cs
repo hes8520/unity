@@ -5,31 +5,37 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class BossAI : MonoBehaviour
 {
+    [Header("--- ★ 모델 스왑 & 애니메이터 설정 ---")]
+    public GameObject riggedModel;   // 평소/뼈대 있는 모델 그룹 (RiggedModel_Group)
+    public GameObject noBoneModel;   // 변신/뼈대 없는 모델 (Boss_Chicken_2skill)
+    
+    [Header("--- ★ 변신 모델 애니메이션 설정 ---")]
+    public Animator noBoneAnim;      // ★ Boss_Chicken_2skill에 붙은 Animator 컴포넌트 연결
+    public string dashStateName = "Dash"; // 변신 모델의 돌진 애니메이션 State 이름 (대소문자 정확히)
+    public string jumpStateName = "Jump"; // 변신 모델의 점프 애니메이션 State 이름 (대소문자 정확히)
+
     [Header("--- ★ 시간 설정 (초 단위) ---")]
-    [Header("[1. 쪼기 시간 (총 4.1초)]")]
-    public float peckTotalTime = 4.1f;    // 전체 길이
-    public float peckWindupTime = 1.88f;  // 공격 발생 전 대기 시간 (약 46프레임 지점)
-    public float peckActiveTime = 1.23f;  // 공격 판정이 유지되는 시간 (약 30프레임 동안)
+    [Header("[1. 쪼기 시간]")]
+    public float peckTotalTime = 4.1f;
+    public float peckWindupTime = 1.88f;
+    public float peckActiveTime = 1.23f;
 
-    [Header("[2. 돌진 시간 (총 2.08초)]")]
-    public float dashTotalTime = 2.08f;   // 전체 길이
-    public float dashWindupTime = 0.28f;  // 출발 전 준비 시간 (약 8프레임 지점)
-    public float dashMoveTime = 1.44f;    // 실제 돌진하는 시간 (약 40프레임 동안)
+    [Header("[2. 돌진 시간]")]
+    public float dashTotalTime = 2.08f;
+    public float dashWindupTime = 0.28f;
+    public float dashMoveTime = 1.44f;
 
-    [Header("[3. 점프 시간 (총 2.08초)]")]
-    public float jumpTotalTime = 2.08f;   // 전체 길이
-    public float jumpWindupTime = 1.07f;  // 공중에 뜨기 전 준비 시간 (약 30프레임 지점)
-    public float jumpAirTime = 0.4f;      // 공중에 떠 있는 시간 (약 11프레임 동안)
+    [Header("[3. 점프 시간]")]
+    public float jumpTotalTime = 2.08f;
+    public float jumpWindupTime = 1.07f;
+    public float jumpAirTime = 0.4f;
 
-    [Header("--- 회전 보정 ---")]
-    public float modelRotationOffset = 0f; 
+    [Header("--- 기타 설정 ---")]
+    public float modelRotationOffset = 0f;
+    [Range(0, 360)] public float peckAngle = 40f;
+    public float dashWidth = 2.0f;
+    public float jumpRadius = 5.0f;
 
-    [Header("--- 공격 범위 조절 ---")]
-    [Range(0, 360)] public float peckAngle = 40f; 
-    public float dashWidth = 2.0f; 
-    public float jumpRadius = 5.0f; 
-
-    [Header("기본 설정")]
     public Transform player;
     public float moveSpeed = 3.5f;
     public float rotSpeed = 10f;
@@ -37,32 +43,18 @@ public class BossAI : MonoBehaviour
     public float attackRange = 3.0f;
     public float attackCooldown = 3.0f;
 
-    [Header("데미지 설정")]
     public float peckDamage = 10f;
     public float dashDamage = 20f;
     public float jumpDamage = 30f;
-
-    [Header("패턴 세부 설정")]
     public float dashSpeed = 15f;
 
-    [Header("사운드 & 이펙트 & 장판")]
+    [Header("사운드 & 이펙트")]
     public AudioClip peckSound;
-    public AudioClip dashStartSound;
-    public AudioClip dashHitSound;
-    public AudioClip jumpUpSound;
-    public AudioClip jumpLandSound;
+    public AudioClip dashStartSound, dashHitSound, jumpUpSound, jumpLandSound;
+    public GameObject peckHitEffect, dashTrailEffect, dashHitEffect, jumpStartEffect, jumpLandEffect;
+    public GameObject peckIndicator, dashIndicator, jumpIndicator;
 
-    public GameObject peckHitEffect;
-    public GameObject dashTrailEffect; 
-    public GameObject dashHitEffect;
-    public GameObject jumpStartEffect;
-    public GameObject jumpLandEffect;
-
-    public GameObject peckIndicator; 
-    public GameObject dashIndicator; 
-    public GameObject jumpIndicator; 
-
-    private Animator anim;
+    private Animator mainAnim; // 본체(뼈대) 애니메이터
     private Rigidbody rb;
     private AudioSource audioSource;
     private bool isAttacking = false;
@@ -70,7 +62,8 @@ public class BossAI : MonoBehaviour
 
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        // 최상위(본체) 애니메이터 가져오기 (이건 걷기/쪼기용)
+        mainAnim = GetComponentInChildren<Animator>(); 
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
 
@@ -79,6 +72,16 @@ public class BossAI : MonoBehaviour
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
             if (playerObj != null) player = playerObj.transform;
         }
+
+        // 시작 시 기본 모델(뼈대 있음)만 켜기
+        SwitchModel(true);
+    }
+
+    // ★ 모델 교체 함수
+    void SwitchModel(bool useRigged)
+    {
+        if (riggedModel != null) riggedModel.SetActive(useRigged);
+        if (noBoneModel != null) noBoneModel.SetActive(!useRigged);
     }
 
     void FixedUpdate()
@@ -86,9 +89,9 @@ public class BossAI : MonoBehaviour
         if (isAttacking || player == null) return;
 
         float dist = Vector3.Distance(transform.position, player.position);
-        
         Vector3 dirToPlayer = GetDirToPlayer();
 
+        // 회전 처리
         if (dirToPlayer != Vector3.zero)
         {
             Quaternion lookRot = Quaternion.LookRotation(dirToPlayer);
@@ -96,9 +99,11 @@ public class BossAI : MonoBehaviour
             rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRot, rotSpeed * Time.fixedDeltaTime));
         }
 
+        // 이동 및 공격 판단
         if (dist <= attackRange)
         {
-            anim.SetBool("IsMove", false);
+            if (mainAnim != null) mainAnim.SetBool("IsMove", false);
+            
             if (Time.time >= lastAttackTime + attackCooldown)
             {
                 StartCoroutine(ChooseAttackPattern());
@@ -106,13 +111,14 @@ public class BossAI : MonoBehaviour
         }
         else if (dist <= detectionRange)
         {
-            anim.SetBool("IsMove", true);
+            if (mainAnim != null) mainAnim.SetBool("IsMove", true);
+            
             Vector3 movePos = transform.position + dirToPlayer * moveSpeed * Time.fixedDeltaTime;
             rb.MovePosition(movePos);
         }
         else
         {
-            anim.SetBool("IsMove", false);
+            if (mainAnim != null) mainAnim.SetBool("IsMove", false);
         }
     }
 
@@ -139,9 +145,10 @@ public class BossAI : MonoBehaviour
     {
         isAttacking = true;
         lastAttackTime = Time.time;
-        rb.linearVelocity = Vector3.zero;
+        // 유니티 버전에 따라 velocity 또는 linearVelocity 사용
+        rb.linearVelocity = Vector3.zero; 
 
-        int pattern = Random.Range(0, 3); 
+        int pattern = Random.Range(0, 3);
 
         switch (pattern)
         {
@@ -151,114 +158,100 @@ public class BossAI : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
+        
+        // ★ 패턴 종료 후 안전하게 본체 모델로 복귀
+        SwitchModel(true); 
         isAttacking = false;
     }
 
-    // --- 패턴 1: 쪼기 (총 4.1초) ---
+    // --- 패턴 1: 쪼기 (본체 사용) ---
     IEnumerator Pattern_Peck()
     {
-        // 1. 애니메이션 시작
-        anim.SetTrigger("AttackNormal");
+        SwitchModel(true); // 본체 켜기
+        
+        if (mainAnim != null) mainAnim.SetTrigger("AttackNormal");
         PlaySound(peckSound);
 
-        // 2. 장판 깔기
-        Vector3 attackDir = GetDirToPlayer(); 
+        Vector3 attackDir = GetDirToPlayer();
         GameObject indicator = null;
         if (peckIndicator != null)
         {
             Quaternion indicatorRot = Quaternion.LookRotation(attackDir);
             Vector3 spawnPos = transform.position + attackDir * (attackRange / 2);
             indicator = Instantiate(peckIndicator, spawnPos, indicatorRot);
-            
             Vector3 pos = indicator.transform.position; pos.y = 0.1f; indicator.transform.position = pos;
-            
-            float originalY = indicator.transform.localScale.y;
-            indicator.transform.localScale = new Vector3(attackRange, originalY, attackRange); 
+            indicator.transform.localScale = new Vector3(attackRange, indicator.transform.localScale.y, attackRange);
         }
 
-        // 3. 기 모으기 (설정된 시간만큼 대기)
-        yield return new WaitForSeconds(peckWindupTime); 
+        yield return new WaitForSeconds(peckWindupTime);
 
-        // 4. 타격 직전 재조준
         LookAtPlayerInstant();
-        attackDir = GetDirToPlayer(); 
+        attackDir = GetDirToPlayer();
+        if (indicator != null) Destroy(indicator);
 
-        if (indicator != null) Destroy(indicator); 
-
-        // 5. 타격 판정 (설정된 시간동안 유지)
         float timer = 0f;
         bool hasHit = false;
-
         PlayEffect(peckHitEffect, transform.position + attackDir * attackRange, Quaternion.identity);
 
         while (timer < peckActiveTime)
         {
             if (!hasHit)
             {
-                if (CheckDamage(transform.position, attackRange, peckAngle / 2f, peckDamage, attackDir))
-                    hasHit = true; 
+                if (CheckDamage(transform.position, attackRange, peckAngle / 2f, peckDamage, attackDir)) hasHit = true;
             }
             timer += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
 
-        // 6. 후딜레이 (남은 시간 계산해서 대기)
-        float usedTime = peckWindupTime + peckActiveTime;
-        float remainingTime = peckTotalTime - usedTime;
-        if (remainingTime > 0) yield return new WaitForSeconds(remainingTime);
+        float remaining = peckTotalTime - (peckWindupTime + peckActiveTime);
+        if (remaining > 0) yield return new WaitForSeconds(remaining);
     }
 
-    // --- 패턴 2: 돌진 (총 2.08초) ---
+    // --- 패턴 2: 돌진 (★ 변신 모델 사용) ---
     IEnumerator Pattern_Dash()
     {
-        Vector3 dashDir = GetDirToPlayer(); 
-        
+        SwitchModel(false); // 변신 모델 켜기
+
+        // ★ 변신 모델의 애니메이터를 직접 실행
+        if (noBoneAnim != null) 
+        {
+            noBoneAnim.Play(dashStateName, 0, 0f); 
+        }
+
+        Vector3 dashDir = GetDirToPlayer();
         GameObject indicator = null;
         if (dashIndicator != null)
         {
-            // 돌진 거리는 속도 * 시간
             float totalDashDistance = dashSpeed * dashMoveTime;
-
             Vector3 spawnPos = transform.position + dashDir * (totalDashDistance / 2);
             Quaternion indicatorRot = Quaternion.LookRotation(dashDir);
             indicator = Instantiate(dashIndicator, spawnPos, indicatorRot);
-            
             Vector3 pos = indicator.transform.position; pos.y = 0.1f; indicator.transform.position = pos;
-
-            float originalY = indicator.transform.localScale.y;
-            indicator.transform.localScale = new Vector3(dashWidth, originalY, totalDashDistance);
+            indicator.transform.localScale = new Vector3(dashWidth, indicator.transform.localScale.y, totalDashDistance);
         }
 
-        // 1. 준비 시간 대기
         yield return new WaitForSeconds(dashWindupTime);
 
-        // 2. 출발 직전 재조준
         LookAtPlayerInstant();
         dashDir = GetDirToPlayer();
-
         if (indicator != null) Destroy(indicator);
 
         PlaySound(dashStartSound);
-        anim.SetTrigger("AttackDash");
-        
+
         GameObject trail = null;
         if (dashTrailEffect != null)
             trail = Instantiate(dashTrailEffect, transform.position, transform.rotation, transform);
 
-        // 3. 돌진 이동
         float currentDashTime = 0f;
-
         while (currentDashTime < dashMoveTime)
         {
             rb.MovePosition(rb.position + dashDir * dashSpeed * Time.fixedDeltaTime);
-            
             if (CheckDamage(transform.position, dashWidth, 360f, dashDamage, dashDir))
             {
                 PlaySound(dashHitSound);
                 PlayEffect(dashHitEffect, transform.position + dashDir, Quaternion.identity);
-                break; 
+                break;
             }
-
             currentDashTime += Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
@@ -266,43 +259,42 @@ public class BossAI : MonoBehaviour
         if (trail != null) Destroy(trail);
         rb.linearVelocity = Vector3.zero;
 
-        // 4. 후딜레이
-        float usedTime = dashWindupTime + dashMoveTime;
-        float remainingTime = dashTotalTime - usedTime;
-        if (remainingTime > 0) yield return new WaitForSeconds(remainingTime);
+        float remaining = dashTotalTime - (dashWindupTime + dashMoveTime);
+        if (remaining > 0) yield return new WaitForSeconds(remaining);
+        
+        SwitchModel(true); // 복귀
     }
 
-    // --- 패턴 3: 점프 (총 2.08초) ---
+    // --- 패턴 3: 점프 (★ 변신 모델 사용) ---
     IEnumerator Pattern_JumpSlam()
     {
-        anim.SetTrigger("AttackJump");
+        SwitchModel(false); // 변신 모델 켜기
+
+        // ★ 변신 모델 애니메이터 직접 실행
+        if (noBoneAnim != null)
+        {
+            noBoneAnim.Play(jumpStateName, 0, 0f);
+        }
+
         PlaySound(jumpUpSound);
         PlayEffect(jumpStartEffect, transform.position, Quaternion.identity);
 
-        // 1. 도약 준비 대기
         yield return new WaitForSeconds(jumpWindupTime);
 
-        // 2. 공중 체공 (착지 위치 계산)
-        Vector3 landingPos = player.position; 
-        
+        Vector3 landingPos = player.position;
         GameObject indicator = null;
         if (jumpIndicator != null)
         {
             indicator = Instantiate(jumpIndicator, landingPos, Quaternion.identity);
             Vector3 pos = indicator.transform.position; pos.y = 0.1f; indicator.transform.position = pos;
-
             float diameter = jumpRadius * 2;
-            float originalY = indicator.transform.localScale.y;
-            indicator.transform.localScale = new Vector3(diameter, originalY, diameter);
+            indicator.transform.localScale = new Vector3(diameter, indicator.transform.localScale.y, diameter);
         }
 
-        // 체공 시간 대기
         yield return new WaitForSeconds(jumpAirTime);
 
-        // 3. 착지 (쾅!)
         if (indicator != null) Destroy(indicator);
-        transform.position = landingPos; 
-        
+        transform.position = landingPos;
         PlaySound(jumpLandSound);
         PlayEffect(jumpLandEffect, transform.position, Quaternion.identity);
 
@@ -312,12 +304,13 @@ public class BossAI : MonoBehaviour
             if (hit.CompareTag("Player")) GiveDamage(hit.transform, jumpDamage);
         }
 
-        // 4. 후딜레이 (착지 모션)
-        float usedTime = jumpWindupTime + jumpAirTime;
-        float remainingTime = jumpTotalTime - usedTime;
-        if (remainingTime > 0) yield return new WaitForSeconds(remainingTime);
+        float remaining = jumpTotalTime - (jumpWindupTime + jumpAirTime);
+        if (remaining > 0) yield return new WaitForSeconds(remaining);
+        
+        SwitchModel(true); // 복귀
     }
 
+    // --- 유틸리티 함수들 ---
     void PlaySound(AudioClip clip) { if (clip != null && audioSource != null) audioSource.PlayOneShot(clip); }
     void PlayEffect(GameObject prefab, Vector3 pos, Quaternion rot) { if (prefab != null) Instantiate(prefab, pos, rot); }
 
@@ -330,34 +323,34 @@ public class BossAI : MonoBehaviour
             if (Vector3.Angle(forwardDir, dirToPlayer) < angle)
             {
                 GiveDamage(player, damage);
-                return true; 
+                return true;
             }
         }
-        return false; 
+        return false;
     }
 
     void GiveDamage(Transform target, float amount)
     {
-        HealthBar hp = target.GetComponent<HealthBar>();
+        // 체력바 스크립트가 있다면 데미지 전달
+        // (HealthBar 스크립트 이름을 사용하시는 것에 맞춰 변경하세요)
+        var hp = target.GetComponent<HealthBar>();
         if (hp != null) hp.TakeDamage(amount);
     }
 
     void OnDrawGizmos()
     {
-        // 1. 점프 범위
         Gizmos.color = new Color(0, 0, 1, 0.2f);
         Gizmos.DrawSphere(transform.position, jumpRadius);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, jumpRadius);
 
-        // 2. 쪼기 범위
         Vector3 forward = transform.forward;
         if (Application.isPlaying && player != null)
         {
-             Vector3 dir = GetDirToPlayer();
-             if(dir != Vector3.zero) forward = dir;
+            Vector3 dir = GetDirToPlayer();
+            if (dir != Vector3.zero) forward = dir;
         }
-        else 
+        else
         {
             forward = Quaternion.Euler(0, modelRotationOffset, 0) * transform.forward;
         }
@@ -370,10 +363,9 @@ public class BossAI : MonoBehaviour
         Gizmos.DrawRay(transform.position, rightDir * attackRange);
         Gizmos.DrawLine(transform.position + leftDir * attackRange, transform.position + rightDir * attackRange);
 
-        // 3. 돌진 폭
         Gizmos.color = Color.green;
-        Vector3 dashEndPos = transform.position + forward * 5.0f; 
-        Vector3 rightOffset = Vector3.Cross(Vector3.up, forward).normalized * (dashWidth); 
+        Vector3 dashEndPos = transform.position + forward * 5.0f;
+        Vector3 rightOffset = Vector3.Cross(Vector3.up, forward).normalized * (dashWidth);
         Gizmos.DrawLine(transform.position - rightOffset, dashEndPos - rightOffset);
         Gizmos.DrawLine(transform.position + rightOffset, dashEndPos + rightOffset);
     }
